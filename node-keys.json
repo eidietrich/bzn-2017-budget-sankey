@@ -1,0 +1,121 @@
+{
+  "Property Taxes": { "col": 1, "rank": 1, "color": "#ff7f00", "label-name": "Property Taxes" },
+  "Special Assessment": { "col": 1, "rank": 2, "color": "#ffdd00", "label-name": "Special Assessments" },
+  "Charges for Service": { "col": 1, "rank": 3, "color": "#1f78b4", "label-name": "Service Charges" },
+  "Intergovernmental": { "col": 1, "rank": 4, "color": "#6a3d9a", "label-name": "Intergovernmental" },
+  "Licenses & Permits": { "col": 1, "rank": 5, "color": "#fdbf6f", "label-name": "Licenses & Permits" },
+  "Fines and Forfeitures": { "col": 1, "rank": 6, "color": "#cab2d6", "label-name": "Fines & Forfeitures" },
+  "Other Financing": { "col": 1, "rank": 7, "color": "#b0b0b0", "label-name": "Other Financing" },
+  "Other Revenues": { "col": 1, "rank": 8, "color": "#b0b0b0", "label-name": "Other Revenues" },
+  "Interest Income": { "col": 1, "rank": 9, "color": "#b0b0b0", "label-name": "Fund Interest" },
+
+  "010 - General Fund": { "col": 2, "rank": 1, "color": "#e31a1c", "label-name": "General Fund" },
+
+  "100 - Community Development/Planning": { "col": 2, "rank": 3, "color": "#6a3d9a", "label-name": "Planning Fund" },
+  "115 - Building Inspection Fund": { "col": 2, "rank": 3, "color": "#6a3d9a", "label-name": "Building Inspection Fund" },
+
+  "116 - TIFD Downtown Improvement": { "col": 2, "rank": 2.0, "color": "#33a02c", "label-name": "TIFD Downtown Improvement" },
+  "143 - TIF N 7th Corridor": { "col": 2, "rank": 2.1, "color": "#33a02c", "label-name": "TIF N 7th Corridor" },
+  "119 - Economic Development Loan": { "col": 2, "rank": 2.9, "color": "#33a02c", "label-name": "119 - Economic Development Loan" },
+  "123 - Big Sky Ec Dev Fund": { "col": 2, "rank": 2.9, "color": "#33a02c", "label-name": "123 - Big Sky Ec Dev Fund" },
+  "191 - Bozeman Tourism BID": { "col": 2, "rank": 2.9, "color": "#33a02c", "label-name": "191 - Bozeman Tourism BID" },
+  "176 - BID Downtown Improv Dist": { "col": 2, "rank": 2.9, "color": "#33a02c", "label-name": "176 - BID Downtown Improv Dist" },
+  "305 - 2007 Downtown TIF Bonds": { "col": 2, "rank": 2.9, "color": "#33a02c", "label-name": "305 - 2007 Downtown TIF Bonds" },
+  "144 - TIF NE Urban Renewal District": { "col": 2, "rank": 2.9, "color": "#33a02c", "label-name": "144 - TIF NE Urban Renewal District" },
+  "145 - TIF Mandeville Farm Industrial": { "col": 2, "rank": 2.9, "color": "#33a02c", "label-name": "145 - TIF Mandeville Farm Industrial" },
+
+  "600 - Water Fund": { "col": 2, "rank": 4, "color": "#b15928", "label-name": "Water Fund" },
+  "610 - Water Impact Fee": { "col": 2, "rank": 4.1, "color": "#b15928", "label-name": "Water Impact Fee Fund" },
+  
+  "620 - Waste Water Fund": { "col": 2, "rank": 5, "color": "#b15928", "label-name": "Waste Water Fund" },
+  "630 - Waste Water Impact Fee": { "col": 2, "rank": 5.1, "color": "#b15928", "label-name": "Waste Water Impact Fee Fund" },
+  
+  "111 - Street Maintenance": { "col": 2, "rank": 6, "color": "#b15928", "label-name": "Street Maintenance Fund" },
+  "114 - Street Impact Fee": { "col": 2, "rank": 6.1, "color": "#b15928", "label-name": "Street Impact Fee Fund" },
+  "141 - Street Arterial Construction": { "col": 2, "rank": 6.2, "color": "#b15928", "label-name": "Street Arterial Construction Fund" },
+  "110 - Gas Tax": { "col": 2, "rank": 6.3, "color": "#b15928", "label-name": "Gas Tax Fund" },
+  
+  "670 - Storm Water Fund": { "col": 2, "rank": 7, "color": "#b15928", "label-name": "Storm Water Fund" },
+  
+  "640 - Solid Waste Fund": { "col": 2, "rank": 8, "color": "#b15928", "label-name": "Solid Waste Fund" },
+  "641 - Landfill Closure Costs": { "col": 2, "rank": 9, "color": "#b15928", "label-name": "Landfill Closure Fund" },
+
+  "113 - Fire Impact Fees": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "Fire Impact Fee Fund" }, 
+ 
+
+  "500-566 - Construction Funds": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "Construction Funds" },
+  
+  "310-447 - SID Funds": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "SID Funds" },
+  
+  "650 - Parking Fund": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "Parking Fund" },
+  "112 - Tree Maintenance": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "Tree Maintenance Fund" },
+  "120 - Community Housing Fund": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "Community Housing Fund" },
+
+
+
+  
+
+  "146 - 170;181;182;200-241 - Lighting Districts": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "146 - 170;181;182;200-241 - Lighting Districts" },
+
+  "720 - Health-Medical Insurance": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "720 - Health-Medical Insurance" },
+  "710 - Vehicle Maintenance": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "710 - Vehicle Maintenance" },
+  "177 - Neighborhood Association": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "177 - Neighborhood Association" },
+  "179 - Disaster Relief": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "179 - Disaster Relief" },
+  "183 - Fire Department Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "183 - Fire Department Special Revenue" },
+  "186 - Development Impacts": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "186 - Development Impacts" },
+  "187 - Fire Dept Equipment": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "187 - Fire Dept Equipment" },
+  "188 - City/County Joint Forfeiture": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "188 - City/County Joint Forfeiture" },
+  "193 - Street Maintenance - Babcock SID": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "193 - Street Maintenance - Babcock SID" },
+  "194 - Street Maintenance - Durston SID": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "194 - Street Maintenance - Durston SID" },
+  "800 - Cemetery Perpetual Care": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "800 - Cemetery Perpetual Care" },
+  "103 - Health-Medical Insurance": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "103 - Health-Medical Insurance" },
+  "304 - Parks & Open Space Bond": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "304 - Parks & Open Space Bond" },
+  "303 - G.O. Refunding Series 2012": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "303 - G.O. Refunding Series 2012" },
+  "300 - SID Revolving Fund": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "300 - SID Revolving Fund" },
+  "125 - Drug Forfeiture Fund": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "125 - Drug Forfeiture Fund" },
+  "140 - Police Domestic Violence": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "140 - Police Domestic Violence" },
+  "174 - Victim/Witness Advocate": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "174 - Victim/Witness Advocate" },
+  "175 - Senior Transportation": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "175 - Senior Transportation" },
+  "189 - Story Mansion Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "189 - Story Mansion Special Revenue" },
+  "138 - Law  & Justice Center": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "138 - Law & Justice Center" },
+  "108 - Community Transportation": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "108 - Community Transportation" },
+  "121 - Housing Revolving Loan": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "121 - Housing Revolving Loan" },
+  "132 - Bogert Park Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "132 - Bogert Park Special Revenue" },
+  "133 - Recreation Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "133 - Recreation Special Revenue" },
+  "135 - Cemetery Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "135 - Cemetery Special Revenue" },
+  "136 - Park Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "136 - Park Special Revenue" },
+  "137 - Library Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "137 - Library Special Revenue" },
+  "139 - Police Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "139 - Police Special Revenue" },
+  
+
+  "Administration": { "col": 3, "rank": 1, "color": "#e31a1c", "label-name": "Administration" },
+  "Police": { "col": 3, "rank": 2, "color": "#e31a1c", "label-name": "Police" },
+  "Fire": { "col": 3, "rank": 3, "color": "#e31a1c", "label-name": "Fire" },
+  "Parks & Recreation": { "col": 3, "rank": 4, "color": "#e31a1c", "label-name": "Parks & Rec" },
+  "Library": { "col": 3, "rank": 5, "color": "#e31a1c", "label-name": "Library" },
+  "City Attorney": { "col": 3, "rank": 6, "color": "#e31a1c", "label-name": "City Attorney" },
+  "Municipal Court": { "col": 3, "rank": 7, "color": "#e31a1c", "label-name": "Municipal Court" },
+  "Cemetery": { "col": 3, "rank": 8, "color": "#e31a1c", "label-name": "Cemetery" },
+  "City Commission": { "col": 3, "rank": 9, "color": "#e31a1c", "label-name": "City Commission" },
+  "Sustainability programs": { "col": 3, "rank": 10, "color": "#e31a1c", "label-name": "Sustainability programs" },
+  "Facilities": { "col": 3, "rank": 11, "color": "#e31a1c", "label-name": "Facilities" },
+
+  "Economic development": { "col": 3, "rank": 12, "color": "#33a02c", "label-name": "Economic development" },
+
+  "Planning & building dept": { "col": 3, "rank": 13, "color": "#6a3d9a", "label-name": "Planning & building dept" },
+
+  "Water": { "col": 3, "rank": 14, "color": "#b15928", "label-name": "Water" },
+  "Sewer": { "col": 3, "rank": 15, "color": "#b15928", "label-name": "Sewer" },
+  "Streets": { "col": 3, "rank": 16, "color": "#b15928", "label-name": "Streets" },
+  "Stormwater": { "col": 3, "rank": 17, "color": "#b15928", "label-name": "Stormwater" },
+  "Solid waste": { "col": 3, "rank": 18, "color": "#b15928", "label-name": "Solid Waste" },
+
+  "Work at Story Mill landfill": { "col": 3, "rank": 19, "color": "#fb9a99", "label-name": "Landfill clean-up" },
+  "Parking services": { "col": 3, "rank": 20, "color": "#fb9a99", "label-name": "Parking services" },
+  "Forestry department": { "col": 3, "rank": 21, "color": "#fb9a99", "label-name": "Forestry" },
+  "Street lighting": { "col": 3, "rank": 22, "color": "#fb9a99", "label-name": "Street lighting" },
+  "Affordable housing support": { "col": 3, "rank": 23, "color": "#fb9a99", "label-name": "Affordable housing support" },
+  
+  "Internal service": { "col": 3, "rank": 24, "color": "#b0b0b0", "label-name": "Internal service" },
+  "Other": { "col": 3, "rank": 25, "color": "#b0b0b0", "label-name": "Other" }
+}
