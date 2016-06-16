@@ -3,7 +3,7 @@
         {
             "node": 0, 
             "name": "Property Taxes", 
-            "color": "#ff7f00", 
+            "color": "#e31a1c", 
             "label-name": "Property Taxes", 
             "rank": 1, 
             "col": 1
@@ -75,7 +75,7 @@
         {
             "node": 9, 
             "name": "010 - General Fund", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "General Fund", 
             "rank": 1, 
             "col": 2
@@ -547,7 +547,7 @@
         {
             "node": 68, 
             "name": "City Commission", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "City Commission", 
             "rank": 9, 
             "col": 3
@@ -555,7 +555,7 @@
         {
             "node": 69, 
             "name": "Municipal Court", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Municipal Court", 
             "rank": 7, 
             "col": 3
@@ -563,7 +563,7 @@
         {
             "node": 70, 
             "name": "City Attorney", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "City Attorney", 
             "rank": 6, 
             "col": 3
@@ -571,7 +571,7 @@
         {
             "node": 71, 
             "name": "Administration", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Administration", 
             "rank": 1, 
             "col": 3
@@ -579,7 +579,7 @@
         {
             "node": 72, 
             "name": "Facilities", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Facilities", 
             "rank": 11, 
             "col": 3
@@ -587,7 +587,7 @@
         {
             "node": 73, 
             "name": "Police", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Police", 
             "rank": 2, 
             "col": 3
@@ -595,7 +595,7 @@
         {
             "node": 74, 
             "name": "Fire", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Fire", 
             "rank": 3, 
             "col": 3
@@ -611,7 +611,7 @@
         {
             "node": 76, 
             "name": "Cemetery", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Cemetery", 
             "rank": 8, 
             "col": 3
@@ -619,7 +619,7 @@
         {
             "node": 77, 
             "name": "Parks & Recreation", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Parks & Rec", 
             "rank": 4, 
             "col": 3
@@ -627,7 +627,7 @@
         {
             "node": 78, 
             "name": "Library", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Library", 
             "rank": 5, 
             "col": 3
@@ -643,7 +643,7 @@
         {
             "node": 80, 
             "name": "Sustainability programs", 
-            "color": "#e31a1c", 
+            "color": "#ff7f00", 
             "label-name": "Sustainability programs", 
             "rank": 10, 
             "col": 3

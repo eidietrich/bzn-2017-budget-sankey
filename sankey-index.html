@@ -22,9 +22,14 @@
   fill: none;
   stroke: #000;
   stroke-opacity: .65;
+  transition: stroke-opacity 600ms ease;
 }
-.link-highlight {
+/*.link-highlight {
   stroke-opacity: .2;
+}*/
+.mask {
+  stroke-opacity: .05;
+  
 }
 
 /*.link:hover {
@@ -35,8 +40,12 @@
 <body>
   
 <div id="chart-container" style="max-width: 600px; min-width: 320px">
-  <h1> Bozeman's proposed budget, 2016-17 </h1>
+  <h1> Bozeman's proposed budget   </h1>
+  <p> For fiscal year 2017, running July 2016 to June 2017. Hover or tap to highlight individual portions.
   <div id="chart" style="width:100%;" ></div>
+  <div id="dynamic-info" style="width:100%;">
+    <p>This is filler!</p>
+  </div>
 </div>
   
   
@@ -45,41 +54,6 @@
   <script>
 
     var MOBILE_BREAK = 400; // breakpoint for responsiveness
-
-
-      // // Effort to highlight nodes on click
-      // function highlightNodeLinks(node, i) {
-      //   var remainingNodes=[],
-      //     nextNodes=[];
-
-      //   var strokeOpacity = 0;
-      //   if (d3.select(this).attr("data-clicked") == "1") {
-      //     d3.select(this).atr("data-clicked","0");
-      //     strokeOpacity = 0.2;
-      //   } else {
-      //     d3.select(this).attr("data-clicked", "1");
-      //     strokeOpacity = 0.5;
-      //   }
-
-      //   var traverse = [{
-      //     linkType: "sourceLinks",
-      //     nodeType: "target"
-      //   },{
-      //     linkType: "targetLinks",
-      //     nodeType: "source"
-      //   }];
-
-      //   traverse.forEach(function(step) {
-      //     node[step.linkType].forEach(function(link) {
-      //       remainingNodes.push(link[step.nodeType]);
-      //       highlightLink(link.id, strokeOpacity);
-      //     });
-      //   });
-      // }
-
-      // function highlightLink(id, opacity) {
-      //   d3.select("#link-"+id).style("stroke-opacity", opacity);
-      // }
 
       // UTILITY FUNCTIONS
 
@@ -109,14 +83,15 @@
   SankeyChart.prototype.draw = function(){
     
     this.width = this.element.offsetWidth;
-    this.height = this.width * (3/4 );
+    this.height = this.width;
     this.margin = {
         top: 10,
         right: 10,
         bottom: 10,
         left: 10
       };
-    this.nodeWidth = 20;
+    
+    this.nodeWidth = 30;
     this.nodePadding = 2;
 
     // Decide whether to draw in mobile or desktop mode
@@ -124,27 +99,21 @@
 
     // Adjust for desktop display
     if (this.drawMode === 'desktop'){
-      this.margin.right = 120;
+      this.height = this.width * (3/4);
+      this.margin.right = 100;
+      this.margin.left = 100;
+      this.nodeWidth = 15;
+
     }
-    
-
-
-    
-
-    console.log(this.drawMode);
-    console.log(this.margin.right);
 
     this.plotWidth = this.width - this.margin.left - this.margin.right;
     this.plotHeight = this.height - this.margin.top - this.margin.bottom;
-
 
     this.formatNumber = d3.format(",.0f"), // zero decimal places
       format = function(d) {
           return '$' + formatNumber(d);
       },
       color = d3.scale.category20();
-
-    
 
     // append the svg canvas to the page
     this.element.innerHTML = '';
@@ -169,15 +138,6 @@
       .links(this.data.links)
       .layout(0);
 
-      // console.log(graph.links);
-    // this.data.links.forEach(function(d){
-    //   console.log(d.source['label-name'], ':', d.target['label-name'], ':', d.value);
-    // });
-    // this.data.nodes.forEach(function(d){
-    //   console.log(d.name, d.value);
-    // });
-
-      // console.log(graph.nodes);
 
     // Add link elements
     this.link = this.plot.append('g').selectAll(".link")
@@ -232,7 +192,7 @@
         // });
 
     // add in the title for the nodes
-    if(this.drawMode != 'mobile') {
+    if(this.drawMode === 'desktop') {
       this.node.append("text")
       .filter(function(d) { return d.col === 1 || d.col === 3;})
       .filter(function(d) { return d.value > 500000; })
@@ -242,41 +202,129 @@
         .attr("text-anchor", "end")
         .attr("transform", null)
         .text(function(d) { return d['label-name']; })
-      // .filter(function(d) { return d.x < width / 2; })
+        // .call(wrap)
+      .filter(function(d) { return d.col > 1; })
         .attr("x", 6 + this.sankey.nodeWidth())
         .attr("text-anchor", "start");
     }
 
+    this.addListeners();
     
-
-    // Highlights
-    var colorHold = null;
-    var that = this;
-    d3.selectAll(".node-rect")
-      .on("mouseover", function(){
-        colorHold = this.style.fill;
-        element = d3.select(this);
-
-        // Select node info
-        nodeData = element.datum();
-
-        that.link
-          .filter(function(link) {
-            return(link.source.node == nodeData.node) || 
-              (link.target.node == nodeData.node);
-          })
-          .classed("link-highlight", true);
-          // .style("stroke","red");
-      })
-      .on("mouseout", function(){
-        d3.select(this).style("fill", colorHold);
-        // link.style("stroke", "#000");
-        that.link.classed("link-highlight", false);
-      });
   };
   SankeyChart.prototype.checkSize = function(){
       return this.width > MOBILE_BREAK ? 'desktop' : 'mobile';
+  };
+  SankeyChart.prototype.addListeners = function(){
+    /*
+    Interaction logic: 
+    Hover on/off select works by default
+    Click on node turns on hold state, selects node
+    Click on any node turns off hold state, deselects
+    Hover has no effect during hold state
+    */
+
+    var highlightElement = null;
+    var holdState = false;
+
+    var onHighlight = function(){
+      if (holdState === false){
+        highlightElement = d3.select(this);
+        refreshHighlight();
+      }
     };
+    var offHighlight = function(){
+      if (holdState === false){
+        highlightElement = null;
+        refreshHighlight();
+      }
+    };
+    var click = function(){
+      if (holdState === true) {
+        highlightElement = null;
+        holdState = false;
+        refreshHighlight();
+      } 
+      else {
+        highlightElement = d3.select(this);
+        holdState = true;
+        refreshHighlight();
+      }
+    };
+    var refreshHighlight = function(){
+        // if highlightElement = null, turn everything back
+        // else mask everything except highlight node links
+        if (highlightElement !== null){
+          var sourceLinks = highlightElement.datum().targetLinks;
+          var targetLinks = highlightElement.datum().sourceLinks;
+          // add links one node removed 
+          sourceLinks.forEach(function(d){
+            d.source.targetLinks.forEach(function(d){
+              sourceLinks.push(d);
+            });
+          });
+          targetLinks.forEach(function(d){
+            d.target.sourceLinks.forEach(function(d){
+              targetLinks.push(d);
+            });
+          });
+
+          var highlightLinks = targetLinks.concat(sourceLinks);
+          
+          d3.selectAll('.link')
+            .filter(function(link) {
+              // check whether each link object is in highlightLinks
+              i = highlightLinks.indexOf(link);
+              return i === -1;
+            })
+            .classed("mask", true);
+          // console.log(highlightElement.datum().targetLinks);
+        }
+        else {
+          d3.selectAll('.link')
+            .classed("mask", false);
+        }
+    };
+
+    this.plot.selectAll(".node-rect")
+      .on("mouseover", onHighlight)
+      .on("mouseout", offHighlight)
+      .on("click", click);
+  
+  };
+
+  // function wrap(text) {
+  //     var wrapWidth = 50;
+  //     // Adapted from: http://bl.ocks.org/mbostock/7555321
+  //     text.each(function(){
+  //       console.log(d3.select(this).text());
+  //       var text = d3.select(this),
+  //         words = text.text().split(/\s+/).reverse(),
+  //         word,
+  //         line = [],
+  //         lineNumber = 0,
+  //         lineHeight = 1.1, // ems
+  //         x = text.attr("x"),
+  //         y = text.attr("y"),
+  //         dy = 0,
+  //         tspan = text.text(null).append("tspan").attr("y", y).attr("dy", dy + "em");
+
+  //       while (word = words.pop()) {
+  //         line.push(word);
+  //         tspan.text(line.join(" "));
+  //         if (tspan.node().getComputedTextLength() > wrapWidth) {
+  //           line.pop();
+  //           tspan.text(line.join(" "));
+  //           line = [word];
+  //           tspan = text.append("tspan")
+  //             .attr("x", x)
+  //             .attr("y", y)
+  //             .attr("dy", ++lineNumber * lineHeight + dy + "em")
+  //             .text(word);
+  //         }
+  //       }
+  //       console.log(text.text());
+  //     });
+  // };
     
   </script>
   

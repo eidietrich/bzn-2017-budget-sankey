@@ -1,5 +1,5 @@
 {
-  "Property Taxes": { "col": 1, "rank": 1, "color": "#ff7f00", "label-name": "Property Taxes" },
+  "Property Taxes": { "col": 1, "rank": 1, "color": "#e31a1c", "label-name": "Property Taxes" },
   "Special Assessment": { "col": 1, "rank": 2, "color": "#ffdd00", "label-name": "Special Assessments" },
   "Charges for Service": { "col": 1, "rank": 3, "color": "#1f78b4", "label-name": "Service Charges" },
   "Intergovernmental": { "col": 1, "rank": 4, "color": "#6a3d9a", "label-name": "Intergovernmental" },
@@ -9,7 +9,7 @@
   "Other Revenues": { "col": 1, "rank": 8, "color": "#b0b0b0", "label-name": "Other Revenues" },
   "Interest Income": { "col": 1, "rank": 9, "color": "#b0b0b0", "label-name": "Fund Interest" },
 
-  "010 - General Fund": { "col": 2, "rank": 1, "color": "#e31a1c", "label-name": "General Fund" },
+  "010 - General Fund": { "col": 2, "rank": 1, "color": "#ff7f00", "label-name": "General Fund" },
 
   "100 - Community Development/Planning": { "col": 2, "rank": 3, "color": "#6a3d9a", "label-name": "Planning Fund" },
   "115 - Building Inspection Fund": { "col": 2, "rank": 3, "color": "#6a3d9a", "label-name": "Building Inspection Fund" },
@@ -88,17 +88,17 @@
   "139 - Police Special Revenue": { "col": 2, "rank": 99, "color": "#b0b0b0", "label-name": "139 - Police Special Revenue" },
   
 
-  "Administration": { "col": 3, "rank": 1, "color": "#e31a1c", "label-name": "Administration" },
-  "Police": { "col": 3, "rank": 2, "color": "#e31a1c", "label-name": "Police" },
-  "Fire": { "col": 3, "rank": 3, "color": "#e31a1c", "label-name": "Fire" },
-  "Parks & Recreation": { "col": 3, "rank": 4, "color": "#e31a1c", "label-name": "Parks & Rec" },
-  "Library": { "col": 3, "rank": 5, "color": "#e31a1c", "label-name": "Library" },
-  "City Attorney": { "col": 3, "rank": 6, "color": "#e31a1c", "label-name": "City Attorney" },
-  "Municipal Court": { "col": 3, "rank": 7, "color": "#e31a1c", "label-name": "Municipal Court" },
-  "Cemetery": { "col": 3, "rank": 8, "color": "#e31a1c", "label-name": "Cemetery" },
-  "City Commission": { "col": 3, "rank": 9, "color": "#e31a1c", "label-name": "City Commission" },
-  "Sustainability programs": { "col": 3, "rank": 10, "color": "#e31a1c", "label-name": "Sustainability programs" },
-  "Facilities": { "col": 3, "rank": 11, "color": "#e31a1c", "label-name": "Facilities" },
+  "Administration": { "col": 3, "rank": 1, "color": "#ff7f00", "label-name": "Administration" },
+  "Police": { "col": 3, "rank": 2, "color": "#ff7f00", "label-name": "Police" },
+  "Fire": { "col": 3, "rank": 3, "color": "#ff7f00", "label-name": "Fire" },
+  "Parks & Recreation": { "col": 3, "rank": 4, "color": "#ff7f00", "label-name": "Parks & Rec" },
+  "Library": { "col": 3, "rank": 5, "color": "#ff7f00", "label-name": "Library" },
+  "City Attorney": { "col": 3, "rank": 6, "color": "#ff7f00", "label-name": "City Attorney" },
+  "Municipal Court": { "col": 3, "rank": 7, "color": "#ff7f00", "label-name": "Municipal Court" },
+  "Cemetery": { "col": 3, "rank": 8, "color": "#ff7f00", "label-name": "Cemetery" },
+  "City Commission": { "col": 3, "rank": 9, "color": "#ff7f00", "label-name": "City Commission" },
+  "Sustainability programs": { "col": 3, "rank": 10, "color": "#ff7f00", "label-name": "Sustainability programs" },
+  "Facilities": { "col": 3, "rank": 11, "color": "#ff7f00", "label-name": "Facilities" },
 
   "Economic development": { "col": 3, "rank": 12, "color": "#33a02c", "label-name": "Economic development" },
 
