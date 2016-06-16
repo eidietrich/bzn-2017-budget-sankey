@@ -194,11 +194,10 @@ d3.sankey = function() {
       });
 
     nodesByBreadth.forEach(function(nodes) {
-        console.log('NewCol');
         nodes.forEach(function(node, i) {
           node.y = i;
           node.dy = node.value * ky;
-          console.log(i, node.rank, node['label-name']);
+          // console.log(i, node.rank, node['label-name']);
         });
       });
 
