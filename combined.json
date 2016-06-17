@@ -20,30 +20,30 @@
             "node": 2, 
             "name": "Intergovernmental", 
             "color": "#6a3d9a", 
-            "label-name": "Intergovernmental", 
+            "label-name": "Govt. Transfers", 
             "rank": 4, 
             "col": 1
         }, 
         {
             "node": 3, 
             "name": "Fines and Forfeitures", 
-            "color": "#cab2d6", 
-            "label-name": "Fines & Forfeitures", 
+            "color": "#f781bf", 
+            "label-name": "Fines/Forfeitures", 
             "rank": 6, 
             "col": 1
         }, 
         {
             "node": 4, 
             "name": "Licenses & Permits", 
-            "color": "#fdbf6f", 
-            "label-name": "Licenses & Permits", 
+            "color": "#f781bf", 
+            "label-name": "Licenses/Permits", 
             "rank": 5, 
             "col": 1
         }, 
         {
             "node": 5, 
             "name": "Other Financing", 
-            "color": "#b0b0b0", 
+            "color": "#999999", 
             "label-name": "Other Financing", 
             "rank": 7, 
             "col": 1
@@ -51,7 +51,7 @@
         {
             "node": 6, 
             "name": "Other Revenues", 
-            "color": "#b0b0b0", 
+            "color": "#999999", 
             "label-name": "Other Revenues", 
             "rank": 8, 
             "col": 1
@@ -59,7 +59,7 @@
         {
             "node": 7, 
             "name": "Interest Income", 
-            "color": "#b0b0b0", 
+            "color": "#999999", 
             "label-name": "Fund Interest", 
             "rank": 9, 
             "col": 1
@@ -67,8 +67,8 @@
         {
             "node": 8, 
             "name": "Special Assessment", 
-            "color": "#ffdd00", 
-            "label-name": "Special Assessments", 
+            "color": "#e31a1c", 
+            "label-name": "Assessments", 
             "rank": 2, 
             "col": 1
         }, 
@@ -83,31 +83,31 @@
         {
             "node": 10, 
             "name": "100 - Community Development/Planning", 
-            "color": "#6a3d9a", 
+            "color": "#b15928", 
             "label-name": "Planning Fund", 
-            "rank": 3, 
+            "rank": 11, 
             "col": 2
         }, 
         {
             "node": 11, 
             "name": "103 - Health-Medical Insurance", 
-            "color": "#b0b0b0", 
-            "label-name": "103 - Health-Medical Insurance", 
-            "rank": 99, 
+            "color": "#999999", 
+            "label-name": "Medical Insurance Fund", 
+            "rank": 47, 
             "col": 2
         }, 
         {
             "node": 12, 
             "name": "108 - Community Transportation", 
-            "color": "#b0b0b0", 
-            "label-name": "108 - Community Transportation", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Community Transportation Fund", 
+            "rank": 10.6, 
             "col": 2
         }, 
         {
             "node": 13, 
             "name": "110 - Gas Tax", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Gas Tax Fund", 
             "rank": 6.3, 
             "col": 2
@@ -115,7 +115,7 @@
         {
             "node": 14, 
             "name": "111 - Street Maintenance", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Street Maintenance Fund", 
             "rank": 6, 
             "col": 2
@@ -123,23 +123,23 @@
         {
             "node": 15, 
             "name": "112 - Tree Maintenance", 
-            "color": "#b0b0b0", 
+            "color": "#b15928", 
             "label-name": "Tree Maintenance Fund", 
-            "rank": 99, 
+            "rank": 13, 
             "col": 2
         }, 
         {
             "node": 16, 
             "name": "113 - Fire Impact Fees", 
-            "color": "#b0b0b0", 
+            "color": "#b15928", 
             "label-name": "Fire Impact Fee Fund", 
-            "rank": 99, 
+            "rank": 23, 
             "col": 2
         }, 
         {
             "node": 17, 
             "name": "114 - Street Impact Fee", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Street Impact Fee Fund", 
             "rank": 6.1, 
             "col": 2
@@ -147,16 +147,16 @@
         {
             "node": 18, 
             "name": "115 - Building Inspection Fund", 
-            "color": "#6a3d9a", 
+            "color": "#b15928", 
             "label-name": "Building Inspection Fund", 
-            "rank": 3, 
+            "rank": 11, 
             "col": 2
         }, 
         {
             "node": 19, 
             "name": "116 - TIFD Downtown Improvement", 
             "color": "#33a02c", 
-            "label-name": "TIFD Downtown Improvement", 
+            "label-name": "Downtown Tax Increment Finance District Fund", 
             "rank": 2.0, 
             "col": 2
         }, 
@@ -164,110 +164,110 @@
             "node": 20, 
             "name": "119 - Economic Development Loan", 
             "color": "#33a02c", 
-            "label-name": "119 - Economic Development Loan", 
-            "rank": 2.9, 
+            "label-name": "Economic Development Loan Fund", 
+            "rank": 2.7, 
             "col": 2
         }, 
         {
             "node": 21, 
             "name": "120 - Community Housing Fund", 
-            "color": "#b0b0b0", 
+            "color": "#b15928", 
             "label-name": "Community Housing Fund", 
-            "rank": 99, 
+            "rank": 14, 
             "col": 2
         }, 
         {
             "node": 22, 
             "name": "121 - Housing Revolving Loan", 
-            "color": "#b0b0b0", 
-            "label-name": "121 - Housing Revolving Loan", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Housing Revolving Loan Fund", 
+            "rank": 38, 
             "col": 2
         }, 
         {
             "node": 23, 
             "name": "123 - Big Sky Ec Dev Fund", 
             "color": "#33a02c", 
-            "label-name": "123 - Big Sky Ec Dev Fund", 
-            "rank": 2.9, 
+            "label-name": "Big Sky Econ Dev Grant Fund", 
+            "rank": 2.8, 
             "col": 2
         }, 
         {
             "node": 24, 
             "name": "125 - Drug Forfeiture Fund", 
-            "color": "#b0b0b0", 
-            "label-name": "125 - Drug Forfeiture Fund", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Drug Forfeiture Fund", 
+            "rank": 25, 
             "col": 2
         }, 
         {
             "node": 25, 
             "name": "132 - Bogert Park Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "132 - Bogert Park Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Bogert Park Special Revenue Fund", 
+            "rank": 41, 
             "col": 2
         }, 
         {
             "node": 26, 
             "name": "133 - Recreation Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "133 - Recreation Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Recreation Special Revenue Fund", 
+            "rank": 43, 
             "col": 2
         }, 
         {
             "node": 27, 
             "name": "135 - Cemetery Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "135 - Cemetery Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Cemetery Special Revenue Fund", 
+            "rank": 45, 
             "col": 2
         }, 
         {
             "node": 28, 
             "name": "136 - Park Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "136 - Park Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Park Special Revenue Fund", 
+            "rank": 42, 
             "col": 2
         }, 
         {
             "node": 29, 
             "name": "137 - Library Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "137 - Library Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Library Special Revenue Fund", 
+            "rank": 44, 
             "col": 2
         }, 
         {
             "node": 30, 
             "name": "138 - Law  & Justice Center", 
-            "color": "#b0b0b0", 
-            "label-name": "138 - Law & Justice Center", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Law & Justice Center Fund", 
+            "rank": 37, 
             "col": 2
         }, 
         {
             "node": 31, 
             "name": "139 - Police Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "139 - Police Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Police Special Revenue Fund", 
+            "rank": 24, 
             "col": 2
         }, 
         {
             "node": 32, 
             "name": "140 - Police Domestic Violence", 
-            "color": "#b0b0b0", 
-            "label-name": "140 - Police Domestic Violence", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Police Domestic Violence Fund", 
+            "rank": 26, 
             "col": 2
         }, 
         {
             "node": 33, 
             "name": "141 - Street Arterial Construction", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Street Arterial Construction Fund", 
             "rank": 6.2, 
             "col": 2
@@ -276,190 +276,190 @@
             "node": 34, 
             "name": "143 - TIF N 7th Corridor", 
             "color": "#33a02c", 
-            "label-name": "TIF N 7th Corridor", 
-            "rank": 2.1, 
+            "label-name": "N 7th Tax Increment Finance District Fund", 
+            "rank": 2.4, 
             "col": 2
         }, 
         {
             "node": 35, 
             "name": "144 - TIF NE Urban Renewal District", 
             "color": "#33a02c", 
-            "label-name": "144 - TIF NE Urban Renewal District", 
-            "rank": 2.9, 
+            "label-name": "Northeast Tax Increment Finance District Fund", 
+            "rank": 2.5, 
             "col": 2
         }, 
         {
             "node": 36, 
             "name": "145 - TIF Mandeville Farm Industrial", 
             "color": "#33a02c", 
-            "label-name": "145 - TIF Mandeville Farm Industrial", 
-            "rank": 2.9, 
+            "label-name": "Mandeville Farm Tax Increment Finance District Fund", 
+            "rank": 2.6, 
             "col": 2
         }, 
         {
             "node": 37, 
             "name": "146 - 170;181;182;200-241 - Lighting Districts", 
-            "color": "#b0b0b0", 
-            "label-name": "146 - 170;181;182;200-241 - Lighting Districts", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Lighting District Funds", 
+            "rank": 19, 
             "col": 2
         }, 
         {
             "node": 38, 
             "name": "174 - Victim/Witness Advocate", 
-            "color": "#b0b0b0", 
-            "label-name": "174 - Victim/Witness Advocate", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Victim/Witness Advocate Fund", 
+            "rank": 27, 
             "col": 2
         }, 
         {
             "node": 39, 
             "name": "175 - Senior Transportation", 
-            "color": "#b0b0b0", 
-            "label-name": "175 - Senior Transportation", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Senior Transportation Fund", 
+            "rank": 36, 
             "col": 2
         }, 
         {
             "node": 40, 
             "name": "176 - BID Downtown Improv Dist", 
             "color": "#33a02c", 
-            "label-name": "176 - BID Downtown Improv Dist", 
-            "rank": 2.9, 
+            "label-name": "Downtown Business Improvement District Fund", 
+            "rank": 2.2, 
             "col": 2
         }, 
         {
             "node": 41, 
             "name": "177 - Neighborhood Association", 
-            "color": "#b0b0b0", 
-            "label-name": "177 - Neighborhood Association", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Neighborhood Association Fund", 
+            "rank": 15, 
             "col": 2
         }, 
         {
             "node": 42, 
             "name": "179 - Disaster Relief", 
-            "color": "#b0b0b0", 
-            "label-name": "179 - Disaster Relief", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Disaster Relief (Hail Damage) Fund", 
+            "rank": 20, 
             "col": 2
         }, 
         {
             "node": 43, 
             "name": "183 - Fire Department Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "183 - Fire Department Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Fire Department Special Revenue Fund", 
+            "rank": 21, 
             "col": 2
         }, 
         {
             "node": 44, 
             "name": "186 - Development Impacts", 
-            "color": "#b0b0b0", 
-            "label-name": "186 - Development Impacts", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Development Impacts (Big Box) Fund", 
+            "rank": 18, 
             "col": 2
         }, 
         {
             "node": 45, 
             "name": "187 - Fire Dept Equipment", 
-            "color": "#b0b0b0", 
-            "label-name": "187 - Fire Dept Equipment", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Fire Dept Equipment Fund", 
+            "rank": 22, 
             "col": 2
         }, 
         {
             "node": 46, 
             "name": "188 - City/County Joint Forfeiture", 
-            "color": "#b0b0b0", 
+            "color": "#b15928", 
             "label-name": "188 - City/County Joint Forfeiture", 
-            "rank": 99, 
+            "rank": 30, 
             "col": 2
         }, 
         {
             "node": 47, 
             "name": "189 - Story Mansion Special Revenue", 
-            "color": "#b0b0b0", 
-            "label-name": "189 - Story Mansion Special Revenue", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Story Mansion Special Revenue Fund", 
+            "rank": 40, 
             "col": 2
         }, 
         {
             "node": 48, 
             "name": "191 - Bozeman Tourism BID", 
             "color": "#33a02c", 
-            "label-name": "191 - Bozeman Tourism BID", 
-            "rank": 2.9, 
+            "label-name": "Bozeman Tourism Business Improvement District Fund", 
+            "rank": 2.1, 
             "col": 2
         }, 
         {
             "node": 49, 
             "name": "193 - Street Maintenance - Babcock SID", 
-            "color": "#b0b0b0", 
-            "label-name": "193 - Street Maintenance - Babcock SID", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Babcock Special Improvement District Fund", 
+            "rank": 10.4, 
             "col": 2
         }, 
         {
             "node": 50, 
             "name": "194 - Street Maintenance - Durston SID", 
-            "color": "#b0b0b0", 
-            "label-name": "194 - Street Maintenance - Durston SID", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Durston Special Improvement District Fund", 
+            "rank": 10.4, 
             "col": 2
         }, 
         {
             "node": 51, 
             "name": "300 - SID Revolving Fund", 
-            "color": "#b0b0b0", 
-            "label-name": "300 - SID Revolving Fund", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "SID Revolving Fund", 
+            "rank": 35, 
             "col": 2
         }, 
         {
             "node": 52, 
             "name": "303 - G.O. Refunding Series 2012", 
-            "color": "#b0b0b0", 
-            "label-name": "303 - G.O. Refunding Series 2012", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "2012 Bond Fund", 
+            "rank": 10.6, 
             "col": 2
         }, 
         {
             "node": 53, 
             "name": "304 - Parks & Open Space Bond", 
-            "color": "#b0b0b0", 
-            "label-name": "304 - Parks & Open Space Bond", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Parks & Open Space Bond", 
+            "rank": 16, 
             "col": 2
         }, 
         {
             "node": 54, 
             "name": "305 - 2007 Downtown TIF Bonds", 
             "color": "#33a02c", 
-            "label-name": "305 - 2007 Downtown TIF Bonds", 
-            "rank": 2.9, 
+            "label-name": "2007 Downtown TIF Bonds Fund", 
+            "rank": 2.3, 
             "col": 2
         }, 
         {
             "node": 55, 
             "name": "310-447 - SID Funds", 
-            "color": "#b0b0b0", 
+            "color": "#b15928", 
             "label-name": "SID Funds", 
-            "rank": 99, 
+            "rank": 10.2, 
             "col": 2
         }, 
         {
             "node": 56, 
             "name": "500-566 - Construction Funds", 
-            "color": "#b0b0b0", 
+            "color": "#b15928", 
             "label-name": "Construction Funds", 
-            "rank": 99, 
+            "rank": 10, 
             "col": 2
         }, 
         {
             "node": 57, 
             "name": "600 - Water Fund", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Water Fund", 
             "rank": 4, 
             "col": 2
@@ -467,7 +467,7 @@
         {
             "node": 58, 
             "name": "610 - Water Impact Fee", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Water Impact Fee Fund", 
             "rank": 4.1, 
             "col": 2
@@ -475,7 +475,7 @@
         {
             "node": 59, 
             "name": "620 - Waste Water Fund", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Waste Water Fund", 
             "rank": 5, 
             "col": 2
@@ -483,7 +483,7 @@
         {
             "node": 60, 
             "name": "630 - Waste Water Impact Fee", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Waste Water Impact Fee Fund", 
             "rank": 5.1, 
             "col": 2
@@ -491,7 +491,7 @@
         {
             "node": 61, 
             "name": "640 - Solid Waste Fund", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Solid Waste Fund", 
             "rank": 8, 
             "col": 2
@@ -499,7 +499,7 @@
         {
             "node": 62, 
             "name": "641 - Landfill Closure Costs", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Landfill Closure Fund", 
             "rank": 9, 
             "col": 2
@@ -507,15 +507,15 @@
         {
             "node": 63, 
             "name": "650 - Parking Fund", 
-            "color": "#b0b0b0", 
+            "color": "#b15928", 
             "label-name": "Parking Fund", 
-            "rank": 99, 
+            "rank": 12, 
             "col": 2
         }, 
         {
             "node": 64, 
             "name": "670 - Storm Water Fund", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Storm Water Fund", 
             "rank": 7, 
             "col": 2
@@ -523,25 +523,25 @@
         {
             "node": 65, 
             "name": "710 - Vehicle Maintenance", 
-            "color": "#b0b0b0", 
-            "label-name": "710 - Vehicle Maintenance", 
-            "rank": 99, 
+            "color": "#999999", 
+            "label-name": "Vehicle Maintenance Fund", 
+            "rank": 49, 
             "col": 2
         }, 
         {
             "node": 66, 
             "name": "720 - Health-Medical Insurance", 
-            "color": "#b0b0b0", 
-            "label-name": "720 - Health-Medical Insurance", 
-            "rank": 99, 
+            "color": "#999999", 
+            "label-name": "Medical Insurance Fund", 
+            "rank": 48, 
             "col": 2
         }, 
         {
             "node": 67, 
             "name": "800 - Cemetery Perpetual Care", 
-            "color": "#b0b0b0", 
-            "label-name": "800 - Cemetery Perpetual Care", 
-            "rank": 99, 
+            "color": "#b15928", 
+            "label-name": "Cemetery Perpetual Care Fund", 
+            "rank": 46, 
             "col": 2
         }, 
         {
@@ -603,7 +603,7 @@
         {
             "node": 75, 
             "name": "Streets", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Streets", 
             "rank": 16, 
             "col": 3
@@ -636,7 +636,7 @@
             "node": 79, 
             "name": "Economic development", 
             "color": "#33a02c", 
-            "label-name": "Economic development", 
+            "label-name": "Econ. dev.", 
             "rank": 12, 
             "col": 3
         }, 
@@ -651,7 +651,7 @@
         {
             "node": 81, 
             "name": "Other", 
-            "color": "#b0b0b0", 
+            "color": "#999999", 
             "label-name": "Other", 
             "rank": 25, 
             "col": 3
@@ -659,15 +659,15 @@
         {
             "node": 82, 
             "name": "Planning & building dept", 
-            "color": "#6a3d9a", 
-            "label-name": "Planning & building dept", 
-            "rank": 13, 
+            "color": "#b15928", 
+            "label-name": "Planning dept", 
+            "rank": 20, 
             "col": 3
         }, 
         {
             "node": 83, 
             "name": "Internal service", 
-            "color": "#b0b0b0", 
+            "color": "#999999", 
             "label-name": "Internal service", 
             "rank": 24, 
             "col": 3
@@ -675,7 +675,7 @@
         {
             "node": 84, 
             "name": "Forestry department", 
-            "color": "#fb9a99", 
+            "color": "#b15928", 
             "label-name": "Forestry", 
             "rank": 21, 
             "col": 3
@@ -683,15 +683,15 @@
         {
             "node": 85, 
             "name": "Affordable housing support", 
-            "color": "#fb9a99", 
+            "color": "#b15928", 
             "label-name": "Affordable housing support", 
-            "rank": 23, 
+            "rank": 20.1, 
             "col": 3
         }, 
         {
             "node": 86, 
             "name": "Street lighting", 
-            "color": "#fb9a99", 
+            "color": "#b15928", 
             "label-name": "Street lighting", 
             "rank": 22, 
             "col": 3
@@ -699,7 +699,7 @@
         {
             "node": 87, 
             "name": "Water", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Water", 
             "rank": 14, 
             "col": 3
@@ -707,7 +707,7 @@
         {
             "node": 88, 
             "name": "Sewer", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Sewer", 
             "rank": 15, 
             "col": 3
@@ -715,7 +715,7 @@
         {
             "node": 89, 
             "name": "Solid waste", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Solid Waste", 
             "rank": 18, 
             "col": 3
@@ -723,7 +723,7 @@
         {
             "node": 90, 
             "name": "Work at Story Mill landfill", 
-            "color": "#fb9a99", 
+            "color": "#ffdd44", 
             "label-name": "Landfill clean-up", 
             "rank": 19, 
             "col": 3
@@ -731,15 +731,15 @@
         {
             "node": 91, 
             "name": "Parking services", 
-            "color": "#fb9a99", 
+            "color": "#b15928", 
             "label-name": "Parking services", 
-            "rank": 20, 
+            "rank": 21, 
             "col": 3
         }, 
         {
             "node": 92, 
             "name": "Stormwater", 
-            "color": "#b15928", 
+            "color": "#ffdd44", 
             "label-name": "Stormwater", 
             "rank": 17, 
             "col": 3
@@ -942,7 +942,7 @@
             "value": 48500
         }, 
         {
-            "source": 5, 
+            "source": 0, 
             "target": 21, 
             "value": 264886
         }, 

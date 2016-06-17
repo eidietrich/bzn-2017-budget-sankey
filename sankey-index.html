@@ -1,94 +1,163 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>SANKEY Experiment</title>
+<!-- Bootstrap styles for buttons -->
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+
 <style>
-.node rect {
-/*  cursor: move;*/
-  fill-opacity: .95;
-  shape-rendering: crispEdges;
-}
-.highlight {
-  fill: #444;
+
+@media (max-width: 480px){
+  h1 {
+    font-size: 1.5em;
+  }
 }
 
-.node text {
+p {
+  font-size: 13px;
+}
+#chart-container {
+  margin: 5px;
+}
+
+/* For buttons (overrides bootstrap) */
+.btn-group {
+}
+.btn {
+  font-size: 11px;
+  padding: 6px 5px;
+}
+/* Removes blue border on click in Chrome */
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+}
+/*.btn.selected {
+  background-color: #eee;
+}*/
+
+/* For graphic */
+text {
   font-family: sans-serif;
   font-size: 12px;
   pointer-events: none;
-  text-shadow: 0 1px 0 #fff;
+}
+.node text {
+}
+.label {
+  font-weight: bold;
+}
+
+
+
+.node rect {
+  fill-opacity: .95;
+  shape-rendering: crispEdges;
+}
+
+.highlight {
+  fill: #444;
 }
 
 .link {
   fill: none;
   stroke: #000;
-  stroke-opacity: .65;
+  stroke-opacity: .75;
   transition: stroke-opacity 600ms ease;
 }
-/*.link-highlight {
-  stroke-opacity: .2;
-}*/
+
 .mask {
-  stroke-opacity: .05;
+  stroke-opacity: .1;
   
 }
-
-/*.link:hover {
-  stroke-opacity: .5;
-}*/
 </style>
+
 
 <body>
   
-<div id="chart-container" style="max-width: 600px; min-width: 320px">
-  <h1> Bozeman's proposed budget   </h1>
-  <p> For fiscal year 2017, running July 2016 to June 2017. Hover or tap to highlight individual portions.
-  <div id="chart" style="width:100%;" ></div>
-  <div id="dynamic-info" style="width:100%;">
-    <p>This is filler!</p>
+<div id="chart-container" style="max-width: 600px; min-width: 310px">
+  <h1> Untangling Bozeman's budget</h1>
+  <p> Nearly $100 million will flow through city coffers in Fiscal Year 2017, which starts July 1. As city commissioners consider how to set the city budget for the year, here's a look at the proposed numbers. </p>
+  <p>Hover or tap to highlight specific portions of the budget.</p>
+  <div class="btn-group" id="pane-toggle" role="group" aria-label="...">
+    <button type="button" name="a" class="btn btn-default active">FY17</button>
+    <button type="button" name="b" class="btn btn-default">General Fund</button>
+    <button type="button" name="c" class="btn btn-default">Infrastructure</button>
+    <button type="button" name="d" class="btn btn-default">Housing</button>
   </div>
+  <div id="chart" style="width:100%;" ></div>
+  <div id="description" style="width:100%;"></div>
 </div>
-  
   
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="sankey-modified.js"></script>
   <script>
 
-    var MOBILE_BREAK = 400; // breakpoint for responsiveness
+  var MOBILE_BREAK = 480; // px, breakpoint for responsiveness
+  var BOZEMAN_POP = 45000;
+  var DEFAULT_DESCR = "<p>Hover or tap to highlight specific portions.</p><p>More ipsum</p><p>Yet another ipsum</p>";
+  
+  var panes = {
+    'a': {
+      'name': 'Whole diagram'
+    },
+    'b':{
+      'name': 'General fund' // Highlight general fund
+    },
+    'c':{
+      'name': 'Infrastructure' // Highlight Water, Sewer, Streets, Stormwater, Solid Waste, Landfill clean-up
+    },
+    'd':{
+      'name': 'Affordable housing' // Highlight affordable housing
+    }
+  };
 
-      // UTILITY FUNCTIONS
-
-
-    // });
-
-    d3.json("combined.json", function(error, graph) {
-      var chart = new SankeyChart({
-        element: document.querySelector('#chart'),
-        data: graph 
-      });
+  d3.json("combined.json", function(error, graph) {
+    var chart = new SankeyChart({
+      element: document.querySelector('#chart'),
+      data: graph,
+      panes: panes
     });
+  });
 
   var SankeyChart = function(opts) {
     this.data = opts.data;
     this.element = opts.element;
+    this.panes = opts.panes;
 
     this.draw();
 
+    
+
+    // EVENT LISTENERS
     // redraw on window resize
     var that = this;
     d3.select(window).on('resize', function(){
       that.draw();
     });
+    
+    // Pane xfer handling 
+    d3.selectAll('#pane-toggle button')
+      .on("click", function(){
+        var setHighlights = function(pane){
+          console.log(panes[pane].name);
+        };
+        d3.selectAll('#pane-toggle button')
+        .classed('active', false)
+        d3.select(this).classed('active', true);
+        setHighlights(this.getAttribute('name'));
+      });
+
+
   };
-  
   SankeyChart.prototype.draw = function(){
     
     this.width = this.element.offsetWidth;
     this.height = this.width;
     this.margin = {
-        top: 10,
-        right: 10,
+        top: 25,
+        right: 0,
         bottom: 10,
-        left: 10
+        left: 0
       };
     
     this.nodeWidth = 30;
@@ -99,7 +168,7 @@
 
     // Adjust for desktop display
     if (this.drawMode === 'desktop'){
-      this.height = this.width * (3/4);
+      this.height = this.width * (2/3);
       this.margin.right = 100;
       this.margin.left = 100;
       this.nodeWidth = 15;
@@ -109,18 +178,30 @@
     this.plotWidth = this.width - this.margin.left - this.margin.right;
     this.plotHeight = this.height - this.margin.top - this.margin.bottom;
 
-    this.formatNumber = d3.format(",.0f"), // zero decimal places
-      format = function(d) {
-          return '$' + formatNumber(d);
-      },
-      color = d3.scale.category20();
-
     // append the svg canvas to the page
     this.element.innerHTML = '';
     this.svg = d3.select(this.element).append("svg")
       .attr("width", this.width)
       .attr("height", this.height)
+
+    // Add labels across the chart top
+    var labels = [
+      {text: 'Revenues', position: 0, anchor: 'start'},
+      {text: 'Fund', position: 0.5, anchor: 'middle'},
+      {text: 'Spending', position: 1, anchor: 'end' }
+    ];
+    var that = this;
+    this.label = this.svg.append('g')
+      .selectAll('text')
+      .data(labels).enter()
+      .append('text')
+        .text(function(d){ return d.text; })
+        .attr("class","label")
+        .attr("x", function(d){ return d.position * that.width; })
+        .attr("y", 15)
+        .attr("text-anchor", function(d){ return d.anchor; });
       
+    
     this.plot = this.svg.append('g')
       .attr("transform",
           "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -138,7 +219,6 @@
       .links(this.data.links)
       .layout(0);
 
-
     // Add link elements
     this.link = this.plot.append('g').selectAll(".link")
       .data(this.data.links);
@@ -152,13 +232,6 @@
       .sort(function(a, b) {
           return b.dy - a.dy;
       });
-
-      // // add the link titles
-      // link.append("title")
-      //   .text(function(d) {
-      //     return d.source.name + " → " +
-      //       d.target.name + "\n" + format(d.value);
-      //   });
 
     // Add node elements
     this.node = this.plot.append("g").selectAll(".node")
@@ -186,16 +259,11 @@
         return d3.rgb(d.color).darker(0.5);
       });
 
-        // node.append("title")
-        // .text(function(d) {
-        //   return d.name + "\n" + format(d.value);
-        // });
-
     // add in the title for the nodes
     if(this.drawMode === 'desktop') {
       this.node.append("text")
       .filter(function(d) { return d.col === 1 || d.col === 3;})
-      .filter(function(d) { return d.value > 500000; })
+      .filter(function(d) { return d.value > 3000000; })
         .attr("x", -6)
         .attr("y", function(d) { return d.dy / 2; })
         .attr("dy", ".35em")
@@ -220,111 +288,137 @@
     Hover on/off select works by default
     Click on node turns on hold state, selects node
     Click on any node turns off hold state, deselects
-    Hover has no effect during hold state
+    Hover changes description but not highlihght during hold state
     */
 
     var highlightElement = null;
+    var describeElement = null;
     var holdState = false;
+    var that = this;
 
     var onHighlight = function(){
       if (holdState === false){
         highlightElement = d3.select(this);
-        refreshHighlight();
+        that.refreshHighlight(highlightElement);
       }
+      describeElement = d3.select(this);
+      that.refreshDescription(describeElement);
     };
     var offHighlight = function(){
       if (holdState === false){
         highlightElement = null;
-        refreshHighlight();
+        that.refreshHighlight(highlightElement);
       }
+      describeElement = null;
+      that.refreshDescription(describeElement);
     };
     var click = function(){
       if (holdState === true) {
         highlightElement = null;
+        describeElement = null;
         holdState = false;
-        refreshHighlight();
+        that.refreshHighlight(highlightElement);
+        that.refreshDescription(describeElement);
       } 
       else {
         highlightElement = d3.select(this);
+        describeElement = d3.select(this);
         holdState = true;
-        refreshHighlight();
+        that.refreshHighlight(highlightElement);
+        that.refreshDescription(describeElement);
       }
     };
-    var refreshHighlight = function(){
-        // if highlightElement = null, turn everything back
-        // else mask everything except highlight node links
-        if (highlightElement !== null){
-          var sourceLinks = highlightElement.datum().targetLinks;
-          var targetLinks = highlightElement.datum().sourceLinks;
-          // add links one node removed 
-          sourceLinks.forEach(function(d){
-            d.source.targetLinks.forEach(function(d){
-              sourceLinks.push(d);
-            });
-          });
-          targetLinks.forEach(function(d){
-            d.target.sourceLinks.forEach(function(d){
-              targetLinks.push(d);
-            });
-          });
-
-          var highlightLinks = targetLinks.concat(sourceLinks);
-          
-          d3.selectAll('.link')
-            .filter(function(link) {
-              // check whether each link object is in highlightLinks
-              i = highlightLinks.indexOf(link);
-              return i === -1;
-            })
-            .classed("mask", true);
-          // console.log(highlightElement.datum().targetLinks);
-        }
-        else {
-          d3.selectAll('.link')
-            .classed("mask", false);
-        }
-    };
-
     this.plot.selectAll(".node-rect")
       .on("mouseover", onHighlight)
       .on("mouseout", offHighlight)
-      .on("click", click);
-  
+      .on("click", click);  
+  };
+  SankeyChart.prototype.refreshHighlight = function(highlightElement){
+    // if highlightElement = null, turn everything back
+    // else mask everything except highlight node links
+    if (highlightElement !== null){
+      var sourceLinks = highlightElement.datum().targetLinks;
+      var targetLinks = highlightElement.datum().sourceLinks;
+      // add links one node removed 
+      sourceLinks.forEach(function(d){
+        d.source.targetLinks.forEach(function(d){
+          sourceLinks.push(d);
+        });
+      });
+      targetLinks.forEach(function(d){
+        d.target.sourceLinks.forEach(function(d){
+          targetLinks.push(d);
+        });
+      });
+
+      var highlightLinks = targetLinks.concat(sourceLinks);
+      
+      d3.selectAll('.link')
+        .filter(function(link) {
+          // check whether each link object is in highlightLinks
+          i = highlightLinks.indexOf(link);
+          return i === -1;
+        })
+        .classed("mask", true);
+      // console.log(highlightElement.datum().targetLinks);
+    }
+    else {
+      d3.selectAll('.link')
+        .classed("mask", false);
+    }
   };
 
-  // function wrap(text) {
-  //     var wrapWidth = 50;
-  //     // Adapted from: http://bl.ocks.org/mbostock/7555321
-  //     text.each(function(){
-  //       console.log(d3.select(this).text());
-  //       var text = d3.select(this),
-  //         words = text.text().split(/\s+/).reverse(),
-  //         word,
-  //         line = [],
-  //         lineNumber = 0,
-  //         lineHeight = 1.1, // ems
-  //         x = text.attr("x"),
-  //         y = text.attr("y"),
-  //         dy = 0,
-  //         tspan = text.text(null).append("tspan").attr("y", y).attr("dy", dy + "em");
+  SankeyChart.prototype.refreshDescription = function(describeElement){
+    var formatValue = function(d){
+      return '$' + d3.format(",.0f")(d);
+    };
+    
+    this.descrElem = document.querySelector('#description');
+    this.descrElem.innerHTML = '';
+    this.descr = d3.select(this.descrElem);
+    var text;
 
-  //       while (word = words.pop()) {
-  //         line.push(word);
-  //         tspan.text(line.join(" "));
-  //         if (tspan.node().getComputedTextLength() > wrapWidth) {
-  //           line.pop();
-  //           tspan.text(line.join(" "));
-  //           line = [word];
-  //           tspan = text.append("tspan")
-  //             .attr("x", x)
-  //             .attr("y", y)
-  //             .attr("dy", ++lineNumber * lineHeight + dy + "em")
-  //             .text(word);
-  //         }
-  //       }
-  //       console.log(text.text());
-  //     });
-  // };
+    if (describeElement !== null){
+      var elemData = describeElement.datum();
+      this.descr.append("h3")
+        .text(elemData['label-name']);
+      if (elemData.col === 1){
+        // Description for funding source
+        text = formatValue(elemData.value) + " in expected revenue, or " + formatValue(elemData.value / BOZEMAN_POP) + " per resident.";
+        this.descr.append("p")
+          .text(text);
+
+      } else if (elemData.col === 2){
+        // Description for fund
+        var fundRevenue = sum(elemData.targetLinks, "value");
+        var fundSpending = sum(elemData.sourceLinks, "value");
+        this.descr.append("p")
+          .text(formatValue(fundRevenue) + " in expected revenue");
+        this.descr.append("p")
+          .text(formatValue(fundSpending) + " in proposed spending.");
+
+      } else if (elemData.col === 3){
+        // Description for spending category
+        text = formatValue(elemData.value) + " in proposed spending, or " +  formatValue(elemData.value / BOZEMAN_POP) + " per resident.";
+        this.descr.append("p")
+          .text(text);
+      } else {
+        this.descr.append("p")
+          .text("This is an error.");
+      } 
+
+    } 
+    else {
+      this.descrElem.innerHTML = DEFAULT_DESCR;
+    }
+  };
+
+  // UTILITY FUNCTIONS
+  var sum = function(items, prop){
+    return items.reduce( function(a, b){
+      return a + b[prop];
+    }, 0);
+  };
     
   </script>
   
