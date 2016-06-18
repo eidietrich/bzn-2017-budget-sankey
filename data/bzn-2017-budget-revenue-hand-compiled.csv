@@ -1,0 +1,125 @@
+target,source,value
+010 - General Fund,Property Taxes,15953000
+010 - General Fund,Charges for Service,2122555
+010 - General Fund,Intergovernmental,7037266
+010 - General Fund,Fines and Forfeitures,1203500
+010 - General Fund,Licenses & Permits,316170
+010 - General Fund,Other Financing,2560471
+010 - General Fund,Other Revenues,116500
+010 - General Fund,Interest Income,45000
+100 - Community Development/Planning,Charges for Service,719899
+100 - Community Development/Planning,Other Financing,209162
+100 - Community Development/Planning,Property Taxes,176591
+100 - Community Development/Planning,Intergovernmental,108160
+100 - Community Development/Planning,Other Revenues,47694
+100 - Community Development/Planning,Interest Income,3000
+103 - Health-Medical Insurance,Property Taxes,2653429
+108 - Community Transportation,Other Revenues,50934
+108 - Community Transportation,Interest Income,1660
+110 - Gas Tax,Intergovernmental,676439
+110 - Gas Tax,Interest Income,3900
+111 - Street Maintenance,Charges for Service,4526593
+111 - Street Maintenance,Interest Income,17000
+111 - Street Maintenance,Property Taxes,11000
+111 - Street Maintenance,Licenses & Permits,7619
+112 - Tree Maintenance,Charges for Service,616862
+112 - Tree Maintenance,Other Revenues,6000
+112 - Tree Maintenance,Interest Income,1600
+112 - Tree Maintenance,Intergovernmental,250
+113 - Fire Impact Fees,Charges for Service,311973
+113 - Fire Impact Fees,Interest Income,6564
+114 - Street Impact Fee,Charges for Service,2293441
+114 - Street Impact Fee,Interest Income,95460
+115 - Building Inspection Fund,Licenses & Permits,1670333
+115 - Building Inspection Fund,Interest Income,13000
+115 - Building Inspection Fund,Charges for Service,1915
+116 - TIFD Downtown Improvement,Property Taxes,1740000
+116 - TIFD Downtown Improvement,Intergovernmental,45436
+116 - TIFD Downtown Improvement,Interest Income,11000
+116 - TIFD Downtown Improvement,Other Revenues,1500
+119 - Economic Development Loan,Other Financing,48500
+120 - Community Housing Fund,Property Taxes,264886
+120 - Community Housing Fund,Other Revenues,9500
+120 - Community Housing Fund,Interest Income,2850
+121 - Housing Revolving Loan,Other Revenues,5275
+121 - Housing Revolving Loan,Interest Income,50
+123 - Big Sky Ec Dev Fund,Other Revenues,0
+125 - Drug Forfeiture Fund,Other Financing,111104
+125 - Drug Forfeiture Fund,Fines and Forfeitures,53931
+132 - Bogert Park Special Revenue,Other Revenues,2115
+132 - Bogert Park Special Revenue,Interest Income,325
+133 - Recreation Special Revenue,Other Revenues,995
+133 - Recreation Special Revenue,Interest Income,40
+135 - Cemetery Special Revenue,Interest Income,15
+136 - Park Special Revenue,Other Revenues,3158
+136 - Park Special Revenue,Interest Income,30
+137 - Library Special Revenue,Other Revenues,78354
+137 - Library Special Revenue,Interest Income,300
+138 - Law  & Justice Center,Other Revenues,0
+139 - Police Special Revenue,Other Revenues,30266
+140 - Police Domestic Violence,Intergovernmental,115000
+141 - Street Arterial Construction,Special Assessment,1095551
+141 - Street Arterial Construction,Other Revenues,892
+143 - TIF N 7th Corridor,Property Taxes,719213
+143 - TIF N 7th Corridor,Interest Income,13930
+144 - TIF NE Urban Renewal District,Property Taxes,85000
+144 - TIF NE Urban Renewal District,Interest Income,1800
+145 - TIF Mandeville Farm Industrial,Property Taxes,36097
+146 - 170;181;182;200-241 - Lighting Districts,Special Assessment,368357
+146 - 170;181;182;200-241 - Lighting Districts,Interest Income,5004
+174 - Victim/Witness Advocate,Fines and Forfeitures,76800
+174 - Victim/Witness Advocate,Interest Income,2763
+175 - Senior Transportation,Property Taxes,88295
+175 - Senior Transportation,Interest Income,106
+176 - BID Downtown Improv Dist,Other Financing,132000
+176 - BID Downtown Improv Dist,Other Revenues,14500
+176 - BID Downtown Improv Dist,Interest Income,200
+177 - Neighborhood Association,Interest Income,7
+179 - Disaster Relief,Interest Income,8816
+183 - Fire Department Special Revenue,Other Revenues,3000
+183 - Fire Department Special Revenue,Interest Income,506
+186 - Development Impacts,Interest Income,1234
+187 - Fire Dept Equipment,Property Taxes,353181
+187 - Fire Dept Equipment,Interest Income,2516
+188 - City/County Joint Forfeiture,Interest Income,1047
+189 - Story Mansion Special Revenue,Charges for Service,38000
+191 - Bozeman Tourism BID,Special Assessment,930250
+191 - Bozeman Tourism BID,Other Revenues,1218
+193 - Street Maintenance - Babcock SID,Other Revenues,5700
+194 - Street Maintenance - Durston SID,Other Revenues,5250
+194 - Street Maintenance - Durston SID,Interest Income,40
+300 - SID Revolving Fund,Interest Income,19000
+303 - G.O. Refunding Series 2012,Property Taxes,276000
+304 - Parks & Open Space Bond,Property Taxes,1082738
+305 - 2007 Downtown TIF Bonds,Other Financing,425488
+310-447 - SID Funds,Special Assessment,626389
+500-566 - Construction Funds,Other Revenues,834756
+600 - Water Fund,Charges for Service,7898330
+600 - Water Fund,Other Financing,1518096
+600 - Water Fund,Other Revenues,135000
+600 - Water Fund,Interest Income,70000
+600 - Water Fund,Intergovernmental,1500
+610 - Water Impact Fee,Charges for Service,1470000
+610 - Water Impact Fee,Interest Income,5000
+620 - Waste Water Fund,Charges for Service,8149451
+620 - Waste Water Fund,Other Revenues,284200
+620 - Waste Water Fund,Interest Income,15000
+620 - Waste Water Fund,Intergovernmental,1500
+630 - Waste Water Impact Fee,Charges for Service,3149133
+640 - Solid Waste Fund,Charges for Service,3332444
+640 - Solid Waste Fund,Other Revenues,20500
+640 - Solid Waste Fund,Interest Income,6365
+641 - Landfill Closure Costs,Other Revenues,807000
+650 - Parking Fund,Licenses & Permits,326699
+650 - Parking Fund,Fines and Forfeitures,284500
+650 - Parking Fund,Other Revenues,167000
+650 - Parking Fund,Interest Income,2800
+670 - Storm Water Fund,Charges for Service,1305680
+670 - Storm Water Fund,Other Financing,140000
+670 - Storm Water Fund,Interest Income,2100
+710 - Vehicle Maintenance,Charges for Service,1200000
+710 - Vehicle Maintenance,Other Revenues,3000
+710 - Vehicle Maintenance,Interest Income,2700
+720 - Health-Medical Insurance,Charges for Service,4820912
+800 - Cemetery Perpetual Care,Charges for Service,100000
+800 - Cemetery Perpetual Care,Interest Income,6000

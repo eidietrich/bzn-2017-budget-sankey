@@ -1,0 +1,1730 @@
+{
+    "nodes": [
+        {
+            "node": 0, 
+            "name": "Property Taxes", 
+            "color": "#e31a1c", 
+            "label-name": "Property Taxes", 
+            "rank": 1, 
+            "col": 1
+        }, 
+        {
+            "node": 1, 
+            "name": "Charges for Service", 
+            "color": "#1f78b4", 
+            "label-name": "Service Charges", 
+            "rank": 3, 
+            "col": 1
+        }, 
+        {
+            "node": 2, 
+            "name": "Intergovernmental", 
+            "color": "#6a3d9a", 
+            "label-name": "Govt. Transfers", 
+            "rank": 4, 
+            "col": 1
+        }, 
+        {
+            "node": 3, 
+            "name": "Fines and Forfeitures", 
+            "color": "#f781bf", 
+            "label-name": "Fines/Forfeitures", 
+            "rank": 6, 
+            "col": 1
+        }, 
+        {
+            "node": 4, 
+            "name": "Licenses & Permits", 
+            "color": "#f781bf", 
+            "label-name": "Licenses/Permits", 
+            "rank": 5, 
+            "col": 1
+        }, 
+        {
+            "node": 5, 
+            "name": "Other Financing", 
+            "color": "#999999", 
+            "label-name": "Other Financing", 
+            "rank": 7, 
+            "col": 1
+        }, 
+        {
+            "node": 6, 
+            "name": "Other Revenues", 
+            "color": "#999999", 
+            "label-name": "Other Revenues", 
+            "rank": 8, 
+            "col": 1
+        }, 
+        {
+            "node": 7, 
+            "name": "Interest Income", 
+            "color": "#999999", 
+            "label-name": "Fund Interest", 
+            "rank": 9, 
+            "col": 1
+        }, 
+        {
+            "node": 8, 
+            "name": "Special Assessment", 
+            "color": "#e31a1c", 
+            "label-name": "Assessments", 
+            "rank": 2, 
+            "col": 1
+        }, 
+        {
+            "node": 9, 
+            "name": "010 - General Fund", 
+            "color": "#ff7f00", 
+            "label-name": "General Fund", 
+            "rank": 1, 
+            "col": 2
+        }, 
+        {
+            "node": 10, 
+            "name": "100 - Community Development/Planning", 
+            "color": "#b15928", 
+            "label-name": "Planning Fund", 
+            "rank": 11, 
+            "col": 2
+        }, 
+        {
+            "node": 11, 
+            "name": "103 - Health-Medical Insurance", 
+            "color": "#999999", 
+            "label-name": "Medical Insurance Fund", 
+            "rank": 47, 
+            "col": 2
+        }, 
+        {
+            "node": 12, 
+            "name": "108 - Community Transportation", 
+            "color": "#b15928", 
+            "label-name": "Community Transportation Fund", 
+            "rank": 10.6, 
+            "col": 2
+        }, 
+        {
+            "node": 13, 
+            "name": "110 - Gas Tax", 
+            "color": "#ffdd44", 
+            "label-name": "Gas Tax Fund", 
+            "rank": 6.3, 
+            "col": 2
+        }, 
+        {
+            "node": 14, 
+            "name": "111 - Street Maintenance", 
+            "color": "#ffdd44", 
+            "label-name": "Street Maintenance Fund", 
+            "rank": 6, 
+            "col": 2
+        }, 
+        {
+            "node": 15, 
+            "name": "112 - Tree Maintenance", 
+            "color": "#b15928", 
+            "label-name": "Tree Maintenance Fund", 
+            "rank": 13, 
+            "col": 2
+        }, 
+        {
+            "node": 16, 
+            "name": "113 - Fire Impact Fees", 
+            "color": "#b15928", 
+            "label-name": "Fire Impact Fee Fund", 
+            "rank": 23, 
+            "col": 2
+        }, 
+        {
+            "node": 17, 
+            "name": "114 - Street Impact Fee", 
+            "color": "#ffdd44", 
+            "label-name": "Street Impact Fee Fund", 
+            "rank": 6.1, 
+            "col": 2
+        }, 
+        {
+            "node": 18, 
+            "name": "115 - Building Inspection Fund", 
+            "color": "#b15928", 
+            "label-name": "Building Inspection Fund", 
+            "rank": 11, 
+            "col": 2
+        }, 
+        {
+            "node": 19, 
+            "name": "116 - TIFD Downtown Improvement", 
+            "color": "#33a02c", 
+            "label-name": "Downtown Tax Increment Finance District Fund", 
+            "rank": 2.0, 
+            "col": 2
+        }, 
+        {
+            "node": 20, 
+            "name": "119 - Economic Development Loan", 
+            "color": "#33a02c", 
+            "label-name": "Economic Development Loan Fund", 
+            "rank": 2.7, 
+            "col": 2
+        }, 
+        {
+            "node": 21, 
+            "name": "120 - Community Housing Fund", 
+            "color": "#b15928", 
+            "label-name": "Community Housing Fund", 
+            "rank": 14, 
+            "col": 2
+        }, 
+        {
+            "node": 22, 
+            "name": "121 - Housing Revolving Loan", 
+            "color": "#b15928", 
+            "label-name": "Housing Revolving Loan Fund", 
+            "rank": 38, 
+            "col": 2
+        }, 
+        {
+            "node": 23, 
+            "name": "123 - Big Sky Ec Dev Fund", 
+            "color": "#33a02c", 
+            "label-name": "Big Sky Econ Dev Grant Fund", 
+            "rank": 2.8, 
+            "col": 2
+        }, 
+        {
+            "node": 24, 
+            "name": "125 - Drug Forfeiture Fund", 
+            "color": "#b15928", 
+            "label-name": "Drug Forfeiture Fund", 
+            "rank": 25, 
+            "col": 2
+        }, 
+        {
+            "node": 25, 
+            "name": "132 - Bogert Park Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Bogert Park Special Revenue Fund", 
+            "rank": 41, 
+            "col": 2
+        }, 
+        {
+            "node": 26, 
+            "name": "133 - Recreation Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Recreation Special Revenue Fund", 
+            "rank": 43, 
+            "col": 2
+        }, 
+        {
+            "node": 27, 
+            "name": "135 - Cemetery Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Cemetery Special Revenue Fund", 
+            "rank": 45, 
+            "col": 2
+        }, 
+        {
+            "node": 28, 
+            "name": "136 - Park Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Park Special Revenue Fund", 
+            "rank": 42, 
+            "col": 2
+        }, 
+        {
+            "node": 29, 
+            "name": "137 - Library Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Library Special Revenue Fund", 
+            "rank": 44, 
+            "col": 2
+        }, 
+        {
+            "node": 30, 
+            "name": "138 - Law  & Justice Center", 
+            "color": "#b15928", 
+            "label-name": "Law & Justice Center Fund", 
+            "rank": 37, 
+            "col": 2
+        }, 
+        {
+            "node": 31, 
+            "name": "139 - Police Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Police Special Revenue Fund", 
+            "rank": 24, 
+            "col": 2
+        }, 
+        {
+            "node": 32, 
+            "name": "140 - Police Domestic Violence", 
+            "color": "#b15928", 
+            "label-name": "Police Domestic Violence Fund", 
+            "rank": 26, 
+            "col": 2
+        }, 
+        {
+            "node": 33, 
+            "name": "141 - Street Arterial Construction", 
+            "color": "#ffdd44", 
+            "label-name": "Street Arterial Construction Fund", 
+            "rank": 6.2, 
+            "col": 2
+        }, 
+        {
+            "node": 34, 
+            "name": "143 - TIF N 7th Corridor", 
+            "color": "#33a02c", 
+            "label-name": "N 7th Tax Increment Finance District Fund", 
+            "rank": 2.4, 
+            "col": 2
+        }, 
+        {
+            "node": 35, 
+            "name": "144 - TIF NE Urban Renewal District", 
+            "color": "#33a02c", 
+            "label-name": "Northeast Tax Increment Finance District Fund", 
+            "rank": 2.5, 
+            "col": 2
+        }, 
+        {
+            "node": 36, 
+            "name": "145 - TIF Mandeville Farm Industrial", 
+            "color": "#33a02c", 
+            "label-name": "Mandeville Farm Tax Increment Finance District Fund", 
+            "rank": 2.6, 
+            "col": 2
+        }, 
+        {
+            "node": 37, 
+            "name": "146 - 170;181;182;200-241 - Lighting Districts", 
+            "color": "#b15928", 
+            "label-name": "Lighting District Funds", 
+            "rank": 19, 
+            "col": 2
+        }, 
+        {
+            "node": 38, 
+            "name": "174 - Victim/Witness Advocate", 
+            "color": "#b15928", 
+            "label-name": "Victim/Witness Advocate Fund", 
+            "rank": 27, 
+            "col": 2
+        }, 
+        {
+            "node": 39, 
+            "name": "175 - Senior Transportation", 
+            "color": "#b15928", 
+            "label-name": "Senior Transportation Fund", 
+            "rank": 36, 
+            "col": 2
+        }, 
+        {
+            "node": 40, 
+            "name": "176 - BID Downtown Improv Dist", 
+            "color": "#33a02c", 
+            "label-name": "Downtown Business Improvement District Fund", 
+            "rank": 2.2, 
+            "col": 2
+        }, 
+        {
+            "node": 41, 
+            "name": "177 - Neighborhood Association", 
+            "color": "#b15928", 
+            "label-name": "Neighborhood Association Fund", 
+            "rank": 15, 
+            "col": 2
+        }, 
+        {
+            "node": 42, 
+            "name": "179 - Disaster Relief", 
+            "color": "#b15928", 
+            "label-name": "Disaster Relief (Hail Damage) Fund", 
+            "rank": 20, 
+            "col": 2
+        }, 
+        {
+            "node": 43, 
+            "name": "183 - Fire Department Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Fire Department Special Revenue Fund", 
+            "rank": 21, 
+            "col": 2
+        }, 
+        {
+            "node": 44, 
+            "name": "186 - Development Impacts", 
+            "color": "#b15928", 
+            "label-name": "Development Impacts (Big Box) Fund", 
+            "rank": 18, 
+            "col": 2
+        }, 
+        {
+            "node": 45, 
+            "name": "187 - Fire Dept Equipment", 
+            "color": "#b15928", 
+            "label-name": "Fire Dept Equipment Fund", 
+            "rank": 22, 
+            "col": 2
+        }, 
+        {
+            "node": 46, 
+            "name": "188 - City/County Joint Forfeiture", 
+            "color": "#b15928", 
+            "label-name": "188 - City/County Joint Forfeiture", 
+            "rank": 30, 
+            "col": 2
+        }, 
+        {
+            "node": 47, 
+            "name": "189 - Story Mansion Special Revenue", 
+            "color": "#b15928", 
+            "label-name": "Story Mansion Special Revenue Fund", 
+            "rank": 40, 
+            "col": 2
+        }, 
+        {
+            "node": 48, 
+            "name": "191 - Bozeman Tourism BID", 
+            "color": "#33a02c", 
+            "label-name": "Bozeman Tourism Business Improvement District Fund", 
+            "rank": 2.1, 
+            "col": 2
+        }, 
+        {
+            "node": 49, 
+            "name": "193 - Street Maintenance - Babcock SID", 
+            "color": "#b15928", 
+            "label-name": "Babcock Special Improvement District Fund", 
+            "rank": 10.4, 
+            "col": 2
+        }, 
+        {
+            "node": 50, 
+            "name": "194 - Street Maintenance - Durston SID", 
+            "color": "#b15928", 
+            "label-name": "Durston Special Improvement District Fund", 
+            "rank": 10.4, 
+            "col": 2
+        }, 
+        {
+            "node": 51, 
+            "name": "300 - SID Revolving Fund", 
+            "color": "#b15928", 
+            "label-name": "SID Revolving Fund", 
+            "rank": 35, 
+            "col": 2
+        }, 
+        {
+            "node": 52, 
+            "name": "303 - G.O. Refunding Series 2012", 
+            "color": "#b15928", 
+            "label-name": "2012 Bond Fund", 
+            "rank": 10.6, 
+            "col": 2
+        }, 
+        {
+            "node": 53, 
+            "name": "304 - Parks & Open Space Bond", 
+            "color": "#b15928", 
+            "label-name": "Parks & Open Space Bond", 
+            "rank": 16, 
+            "col": 2
+        }, 
+        {
+            "node": 54, 
+            "name": "305 - 2007 Downtown TIF Bonds", 
+            "color": "#33a02c", 
+            "label-name": "2007 Downtown TIF Bonds Fund", 
+            "rank": 2.3, 
+            "col": 2
+        }, 
+        {
+            "node": 55, 
+            "name": "310-447 - SID Funds", 
+            "color": "#b15928", 
+            "label-name": "SID Funds", 
+            "rank": 10.2, 
+            "col": 2
+        }, 
+        {
+            "node": 56, 
+            "name": "500-566 - Construction Funds", 
+            "color": "#b15928", 
+            "label-name": "Construction Funds", 
+            "rank": 10, 
+            "col": 2
+        }, 
+        {
+            "node": 57, 
+            "name": "600 - Water Fund", 
+            "color": "#ffdd44", 
+            "label-name": "Water Fund", 
+            "rank": 4, 
+            "col": 2
+        }, 
+        {
+            "node": 58, 
+            "name": "610 - Water Impact Fee", 
+            "color": "#ffdd44", 
+            "label-name": "Water Impact Fee Fund", 
+            "rank": 4.1, 
+            "col": 2
+        }, 
+        {
+            "node": 59, 
+            "name": "620 - Waste Water Fund", 
+            "color": "#ffdd44", 
+            "label-name": "Waste Water Fund", 
+            "rank": 5, 
+            "col": 2
+        }, 
+        {
+            "node": 60, 
+            "name": "630 - Waste Water Impact Fee", 
+            "color": "#ffdd44", 
+            "label-name": "Waste Water Impact Fee Fund", 
+            "rank": 5.1, 
+            "col": 2
+        }, 
+        {
+            "node": 61, 
+            "name": "640 - Solid Waste Fund", 
+            "color": "#ffdd44", 
+            "label-name": "Solid Waste Fund", 
+            "rank": 8, 
+            "col": 2
+        }, 
+        {
+            "node": 62, 
+            "name": "641 - Landfill Closure Costs", 
+            "color": "#ffdd44", 
+            "label-name": "Landfill Closure Fund", 
+            "rank": 9, 
+            "col": 2
+        }, 
+        {
+            "node": 63, 
+            "name": "650 - Parking Fund", 
+            "color": "#b15928", 
+            "label-name": "Parking Fund", 
+            "rank": 12, 
+            "col": 2
+        }, 
+        {
+            "node": 64, 
+            "name": "670 - Storm Water Fund", 
+            "color": "#ffdd44", 
+            "label-name": "Storm Water Fund", 
+            "rank": 7, 
+            "col": 2
+        }, 
+        {
+            "node": 65, 
+            "name": "710 - Vehicle Maintenance", 
+            "color": "#999999", 
+            "label-name": "Vehicle Maintenance Fund", 
+            "rank": 49, 
+            "col": 2
+        }, 
+        {
+            "node": 66, 
+            "name": "720 - Health-Medical Insurance", 
+            "color": "#999999", 
+            "label-name": "Medical Insurance Fund", 
+            "rank": 48, 
+            "col": 2
+        }, 
+        {
+            "node": 67, 
+            "name": "800 - Cemetery Perpetual Care", 
+            "color": "#b15928", 
+            "label-name": "Cemetery Perpetual Care Fund", 
+            "rank": 46, 
+            "col": 2
+        }, 
+        {
+            "node": 68, 
+            "name": "City Commission", 
+            "color": "#ff7f00", 
+            "label-name": "City Commission", 
+            "rank": 9, 
+            "col": 3
+        }, 
+        {
+            "node": 69, 
+            "name": "Municipal Court", 
+            "color": "#ff7f00", 
+            "label-name": "Municipal Court", 
+            "rank": 7, 
+            "col": 3
+        }, 
+        {
+            "node": 70, 
+            "name": "City Attorney", 
+            "color": "#ff7f00", 
+            "label-name": "City Attorney", 
+            "rank": 6, 
+            "col": 3
+        }, 
+        {
+            "node": 71, 
+            "name": "Administration", 
+            "color": "#ff7f00", 
+            "label-name": "Administration", 
+            "rank": 1, 
+            "col": 3
+        }, 
+        {
+            "node": 72, 
+            "name": "Facilities", 
+            "color": "#ff7f00", 
+            "label-name": "Facilities", 
+            "rank": 11, 
+            "col": 3
+        }, 
+        {
+            "node": 73, 
+            "name": "Police", 
+            "color": "#ff7f00", 
+            "label-name": "Police", 
+            "rank": 2, 
+            "col": 3
+        }, 
+        {
+            "node": 74, 
+            "name": "Fire", 
+            "color": "#ff7f00", 
+            "label-name": "Fire", 
+            "rank": 3, 
+            "col": 3
+        }, 
+        {
+            "node": 75, 
+            "name": "Streets", 
+            "color": "#ffdd44", 
+            "label-name": "Streets", 
+            "rank": 16, 
+            "col": 3
+        }, 
+        {
+            "node": 76, 
+            "name": "Cemetery", 
+            "color": "#ff7f00", 
+            "label-name": "Cemetery", 
+            "rank": 8, 
+            "col": 3
+        }, 
+        {
+            "node": 77, 
+            "name": "Parks & Recreation", 
+            "color": "#ff7f00", 
+            "label-name": "Parks & Rec", 
+            "rank": 4, 
+            "col": 3
+        }, 
+        {
+            "node": 78, 
+            "name": "Library", 
+            "color": "#ff7f00", 
+            "label-name": "Library", 
+            "rank": 5, 
+            "col": 3
+        }, 
+        {
+            "node": 79, 
+            "name": "Economic development", 
+            "color": "#33a02c", 
+            "label-name": "Econ. dev.", 
+            "rank": 12, 
+            "col": 3
+        }, 
+        {
+            "node": 80, 
+            "name": "Sustainability programs", 
+            "color": "#ff7f00", 
+            "label-name": "Sustainability programs", 
+            "rank": 10, 
+            "col": 3
+        }, 
+        {
+            "node": 81, 
+            "name": "Other", 
+            "color": "#999999", 
+            "label-name": "Other", 
+            "rank": 25, 
+            "col": 3
+        }, 
+        {
+            "node": 82, 
+            "name": "Planning & building dept", 
+            "color": "#b15928", 
+            "label-name": "Planning dept", 
+            "rank": 20, 
+            "col": 3
+        }, 
+        {
+            "node": 83, 
+            "name": "Internal service", 
+            "color": "#999999", 
+            "label-name": "Internal service", 
+            "rank": 24, 
+            "col": 3
+        }, 
+        {
+            "node": 84, 
+            "name": "Forestry department", 
+            "color": "#b15928", 
+            "label-name": "Forestry", 
+            "rank": 21, 
+            "col": 3
+        }, 
+        {
+            "node": 85, 
+            "name": "Affordable housing support", 
+            "color": "#b15928", 
+            "label-name": "Affordable housing support", 
+            "rank": 20.1, 
+            "col": 3
+        }, 
+        {
+            "node": 86, 
+            "name": "Street lighting", 
+            "color": "#b15928", 
+            "label-name": "Street lighting", 
+            "rank": 22, 
+            "col": 3
+        }, 
+        {
+            "node": 87, 
+            "name": "Water", 
+            "color": "#ffdd44", 
+            "label-name": "Water", 
+            "rank": 14, 
+            "col": 3
+        }, 
+        {
+            "node": 88, 
+            "name": "Sewer", 
+            "color": "#ffdd44", 
+            "label-name": "Sewer", 
+            "rank": 15, 
+            "col": 3
+        }, 
+        {
+            "node": 89, 
+            "name": "Solid waste", 
+            "color": "#ffdd44", 
+            "label-name": "Solid Waste", 
+            "rank": 18, 
+            "col": 3
+        }, 
+        {
+            "node": 90, 
+            "name": "Work at Story Mill landfill", 
+            "color": "#ffdd44", 
+            "label-name": "Landfill clean-up", 
+            "rank": 19, 
+            "col": 3
+        }, 
+        {
+            "node": 91, 
+            "name": "Parking services", 
+            "color": "#b15928", 
+            "label-name": "Parking services", 
+            "rank": 21, 
+            "col": 3
+        }, 
+        {
+            "node": 92, 
+            "name": "Stormwater", 
+            "color": "#ffdd44", 
+            "label-name": "Stormwater", 
+            "rank": 17, 
+            "col": 3
+        }
+    ], 
+    "links": [
+        {
+            "source": 0, 
+            "target": 9, 
+            "value": 15953000
+        }, 
+        {
+            "source": 1, 
+            "target": 9, 
+            "value": 2122555
+        }, 
+        {
+            "source": 2, 
+            "target": 9, 
+            "value": 7037266
+        }, 
+        {
+            "source": 3, 
+            "target": 9, 
+            "value": 1203500
+        }, 
+        {
+            "source": 4, 
+            "target": 9, 
+            "value": 316170
+        }, 
+        {
+            "source": 5, 
+            "target": 9, 
+            "value": 2560471
+        }, 
+        {
+            "source": 6, 
+            "target": 9, 
+            "value": 116500
+        }, 
+        {
+            "source": 7, 
+            "target": 9, 
+            "value": 45000
+        }, 
+        {
+            "source": 1, 
+            "target": 10, 
+            "value": 719899
+        }, 
+        {
+            "source": 5, 
+            "target": 10, 
+            "value": 209162
+        }, 
+        {
+            "source": 0, 
+            "target": 10, 
+            "value": 176591
+        }, 
+        {
+            "source": 2, 
+            "target": 10, 
+            "value": 108160
+        }, 
+        {
+            "source": 6, 
+            "target": 10, 
+            "value": 47694
+        }, 
+        {
+            "source": 7, 
+            "target": 10, 
+            "value": 3000
+        }, 
+        {
+            "source": 0, 
+            "target": 11, 
+            "value": 2653429
+        }, 
+        {
+            "source": 6, 
+            "target": 12, 
+            "value": 50934
+        }, 
+        {
+            "source": 7, 
+            "target": 12, 
+            "value": 1660
+        }, 
+        {
+            "source": 2, 
+            "target": 13, 
+            "value": 676439
+        }, 
+        {
+            "source": 7, 
+            "target": 13, 
+            "value": 3900
+        }, 
+        {
+            "source": 1, 
+            "target": 14, 
+            "value": 4526593
+        }, 
+        {
+            "source": 7, 
+            "target": 14, 
+            "value": 17000
+        }, 
+        {
+            "source": 0, 
+            "target": 14, 
+            "value": 11000
+        }, 
+        {
+            "source": 4, 
+            "target": 14, 
+            "value": 7619
+        }, 
+        {
+            "source": 1, 
+            "target": 15, 
+            "value": 616862
+        }, 
+        {
+            "source": 6, 
+            "target": 15, 
+            "value": 6000
+        }, 
+        {
+            "source": 7, 
+            "target": 15, 
+            "value": 1600
+        }, 
+        {
+            "source": 2, 
+            "target": 15, 
+            "value": 250
+        }, 
+        {
+            "source": 1, 
+            "target": 16, 
+            "value": 311973
+        }, 
+        {
+            "source": 7, 
+            "target": 16, 
+            "value": 6564
+        }, 
+        {
+            "source": 1, 
+            "target": 17, 
+            "value": 2293441
+        }, 
+        {
+            "source": 7, 
+            "target": 17, 
+            "value": 95460
+        }, 
+        {
+            "source": 4, 
+            "target": 18, 
+            "value": 1670333
+        }, 
+        {
+            "source": 7, 
+            "target": 18, 
+            "value": 13000
+        }, 
+        {
+            "source": 1, 
+            "target": 18, 
+            "value": 1915
+        }, 
+        {
+            "source": 0, 
+            "target": 19, 
+            "value": 1740000
+        }, 
+        {
+            "source": 2, 
+            "target": 19, 
+            "value": 45436
+        }, 
+        {
+            "source": 7, 
+            "target": 19, 
+            "value": 11000
+        }, 
+        {
+            "source": 6, 
+            "target": 19, 
+            "value": 1500
+        }, 
+        {
+            "source": 5, 
+            "target": 20, 
+            "value": 48500
+        }, 
+        {
+            "source": 0, 
+            "target": 21, 
+            "value": 264886
+        }, 
+        {
+            "source": 6, 
+            "target": 21, 
+            "value": 9500
+        }, 
+        {
+            "source": 7, 
+            "target": 21, 
+            "value": 2850
+        }, 
+        {
+            "source": 6, 
+            "target": 22, 
+            "value": 5275
+        }, 
+        {
+            "source": 7, 
+            "target": 22, 
+            "value": 50
+        }, 
+        {
+            "source": 6, 
+            "target": 23, 
+            "value": 0
+        }, 
+        {
+            "source": 5, 
+            "target": 24, 
+            "value": 111104
+        }, 
+        {
+            "source": 3, 
+            "target": 24, 
+            "value": 53931
+        }, 
+        {
+            "source": 6, 
+            "target": 25, 
+            "value": 2115
+        }, 
+        {
+            "source": 7, 
+            "target": 25, 
+            "value": 325
+        }, 
+        {
+            "source": 6, 
+            "target": 26, 
+            "value": 995
+        }, 
+        {
+            "source": 7, 
+            "target": 26, 
+            "value": 40
+        }, 
+        {
+            "source": 7, 
+            "target": 27, 
+            "value": 15
+        }, 
+        {
+            "source": 6, 
+            "target": 28, 
+            "value": 3158
+        }, 
+        {
+            "source": 7, 
+            "target": 28, 
+            "value": 30
+        }, 
+        {
+            "source": 6, 
+            "target": 29, 
+            "value": 78354
+        }, 
+        {
+            "source": 7, 
+            "target": 29, 
+            "value": 300
+        }, 
+        {
+            "source": 6, 
+            "target": 30, 
+            "value": 0
+        }, 
+        {
+            "source": 6, 
+            "target": 31, 
+            "value": 30266
+        }, 
+        {
+            "source": 2, 
+            "target": 32, 
+            "value": 115000
+        }, 
+        {
+            "source": 8, 
+            "target": 33, 
+            "value": 1095551
+        }, 
+        {
+            "source": 6, 
+            "target": 33, 
+            "value": 892
+        }, 
+        {
+            "source": 0, 
+            "target": 34, 
+            "value": 719213
+        }, 
+        {
+            "source": 7, 
+            "target": 34, 
+            "value": 13930
+        }, 
+        {
+            "source": 0, 
+            "target": 35, 
+            "value": 85000
+        }, 
+        {
+            "source": 7, 
+            "target": 35, 
+            "value": 1800
+        }, 
+        {
+            "source": 0, 
+            "target": 36, 
+            "value": 36097
+        }, 
+        {
+            "source": 8, 
+            "target": 37, 
+            "value": 368357
+        }, 
+        {
+            "source": 7, 
+            "target": 37, 
+            "value": 5004
+        }, 
+        {
+            "source": 3, 
+            "target": 38, 
+            "value": 76800
+        }, 
+        {
+            "source": 7, 
+            "target": 38, 
+            "value": 2763
+        }, 
+        {
+            "source": 0, 
+            "target": 39, 
+            "value": 88295
+        }, 
+        {
+            "source": 7, 
+            "target": 39, 
+            "value": 106
+        }, 
+        {
+            "source": 5, 
+            "target": 40, 
+            "value": 132000
+        }, 
+        {
+            "source": 6, 
+            "target": 40, 
+            "value": 14500
+        }, 
+        {
+            "source": 7, 
+            "target": 40, 
+            "value": 200
+        }, 
+        {
+            "source": 7, 
+            "target": 41, 
+            "value": 7
+        }, 
+        {
+            "source": 7, 
+            "target": 42, 
+            "value": 8816
+        }, 
+        {
+            "source": 6, 
+            "target": 43, 
+            "value": 3000
+        }, 
+        {
+            "source": 7, 
+            "target": 43, 
+            "value": 506
+        }, 
+        {
+            "source": 7, 
+            "target": 44, 
+            "value": 1234
+        }, 
+        {
+            "source": 0, 
+            "target": 45, 
+            "value": 353181
+        }, 
+        {
+            "source": 7, 
+            "target": 45, 
+            "value": 2516
+        }, 
+        {
+            "source": 7, 
+            "target": 46, 
+            "value": 1047
+        }, 
+        {
+            "source": 1, 
+            "target": 47, 
+            "value": 38000
+        }, 
+        {
+            "source": 8, 
+            "target": 48, 
+            "value": 930250
+        }, 
+        {
+            "source": 6, 
+            "target": 48, 
+            "value": 1218
+        }, 
+        {
+            "source": 6, 
+            "target": 49, 
+            "value": 5700
+        }, 
+        {
+            "source": 6, 
+            "target": 50, 
+            "value": 5250
+        }, 
+        {
+            "source": 7, 
+            "target": 50, 
+            "value": 40
+        }, 
+        {
+            "source": 7, 
+            "target": 51, 
+            "value": 19000
+        }, 
+        {
+            "source": 0, 
+            "target": 52, 
+            "value": 276000
+        }, 
+        {
+            "source": 0, 
+            "target": 53, 
+            "value": 1082738
+        }, 
+        {
+            "source": 5, 
+            "target": 54, 
+            "value": 425488
+        }, 
+        {
+            "source": 8, 
+            "target": 55, 
+            "value": 626389
+        }, 
+        {
+            "source": 6, 
+            "target": 56, 
+            "value": 834756
+        }, 
+        {
+            "source": 1, 
+            "target": 57, 
+            "value": 7898330
+        }, 
+        {
+            "source": 5, 
+            "target": 57, 
+            "value": 1518096
+        }, 
+        {
+            "source": 6, 
+            "target": 57, 
+            "value": 135000
+        }, 
+        {
+            "source": 7, 
+            "target": 57, 
+            "value": 70000
+        }, 
+        {
+            "source": 2, 
+            "target": 57, 
+            "value": 1500
+        }, 
+        {
+            "source": 1, 
+            "target": 58, 
+            "value": 1470000
+        }, 
+        {
+            "source": 7, 
+            "target": 58, 
+            "value": 5000
+        }, 
+        {
+            "source": 1, 
+            "target": 59, 
+            "value": 8149451
+        }, 
+        {
+            "source": 6, 
+            "target": 59, 
+            "value": 284200
+        }, 
+        {
+            "source": 7, 
+            "target": 59, 
+            "value": 15000
+        }, 
+        {
+            "source": 2, 
+            "target": 59, 
+            "value": 1500
+        }, 
+        {
+            "source": 1, 
+            "target": 60, 
+            "value": 3149133
+        }, 
+        {
+            "source": 1, 
+            "target": 61, 
+            "value": 3332444
+        }, 
+        {
+            "source": 6, 
+            "target": 61, 
+            "value": 20500
+        }, 
+        {
+            "source": 7, 
+            "target": 61, 
+            "value": 6365
+        }, 
+        {
+            "source": 6, 
+            "target": 62, 
+            "value": 807000
+        }, 
+        {
+            "source": 4, 
+            "target": 63, 
+            "value": 326699
+        }, 
+        {
+            "source": 3, 
+            "target": 63, 
+            "value": 284500
+        }, 
+        {
+            "source": 6, 
+            "target": 63, 
+            "value": 167000
+        }, 
+        {
+            "source": 7, 
+            "target": 63, 
+            "value": 2800
+        }, 
+        {
+            "source": 1, 
+            "target": 64, 
+            "value": 1305680
+        }, 
+        {
+            "source": 5, 
+            "target": 64, 
+            "value": 140000
+        }, 
+        {
+            "source": 7, 
+            "target": 64, 
+            "value": 2100
+        }, 
+        {
+            "source": 1, 
+            "target": 65, 
+            "value": 1200000
+        }, 
+        {
+            "source": 6, 
+            "target": 65, 
+            "value": 3000
+        }, 
+        {
+            "source": 7, 
+            "target": 65, 
+            "value": 2700
+        }, 
+        {
+            "source": 1, 
+            "target": 66, 
+            "value": 4820912
+        }, 
+        {
+            "source": 1, 
+            "target": 67, 
+            "value": 100000
+        }, 
+        {
+            "source": 7, 
+            "target": 67, 
+            "value": 6000
+        }, 
+        {
+            "source": 9, 
+            "target": 68, 
+            "value": 205001
+        }, 
+        {
+            "source": 9, 
+            "target": 69, 
+            "value": 770495
+        }, 
+        {
+            "source": 9, 
+            "target": 70, 
+            "value": 1206490
+        }, 
+        {
+            "source": 9, 
+            "target": 71, 
+            "value": 3345137
+        }, 
+        {
+            "source": 9, 
+            "target": 72, 
+            "value": 1332312
+        }, 
+        {
+            "source": 9, 
+            "target": 73, 
+            "value": 8615216
+        }, 
+        {
+            "source": 9, 
+            "target": 74, 
+            "value": 5948496
+        }, 
+        {
+            "source": 9, 
+            "target": 75, 
+            "value": 140331
+        }, 
+        {
+            "source": 9, 
+            "target": 76, 
+            "value": 490889
+        }, 
+        {
+            "source": 9, 
+            "target": 77, 
+            "value": 4188413
+        }, 
+        {
+            "source": 9, 
+            "target": 78, 
+            "value": 1868293
+        }, 
+        {
+            "source": 9, 
+            "target": 79, 
+            "value": 413429
+        }, 
+        {
+            "source": 9, 
+            "target": 80, 
+            "value": 166883
+        }, 
+        {
+            "source": 9, 
+            "target": 81, 
+            "value": 1190816
+        }, 
+        {
+            "source": 10, 
+            "target": 82, 
+            "value": 1285872
+        }, 
+        {
+            "source": 11, 
+            "target": 83, 
+            "value": 2653429
+        }, 
+        {
+            "source": 12, 
+            "target": 81, 
+            "value": 0
+        }, 
+        {
+            "source": 13, 
+            "target": 75, 
+            "value": 694500
+        }, 
+        {
+            "source": 14, 
+            "target": 75, 
+            "value": 5192579
+        }, 
+        {
+            "source": 15, 
+            "target": 84, 
+            "value": 740223
+        }, 
+        {
+            "source": 16, 
+            "target": 74, 
+            "value": 25000
+        }, 
+        {
+            "source": 17, 
+            "target": 75, 
+            "value": 5170475
+        }, 
+        {
+            "source": 18, 
+            "target": 82, 
+            "value": 1978444
+        }, 
+        {
+            "source": 19, 
+            "target": 79, 
+            "value": 1405488
+        }, 
+        {
+            "source": 20, 
+            "target": 79, 
+            "value": 31000
+        }, 
+        {
+            "source": 21, 
+            "target": 85, 
+            "value": 387400
+        }, 
+        {
+            "source": 22, 
+            "target": 81, 
+            "value": 0
+        }, 
+        {
+            "source": 23, 
+            "target": 79, 
+            "value": 16500
+        }, 
+        {
+            "source": 24, 
+            "target": 73, 
+            "value": 213116
+        }, 
+        {
+            "source": 25, 
+            "target": 77, 
+            "value": 0
+        }, 
+        {
+            "source": 26, 
+            "target": 77, 
+            "value": 0
+        }, 
+        {
+            "source": 27, 
+            "target": 76, 
+            "value": 0
+        }, 
+        {
+            "source": 28, 
+            "target": 77, 
+            "value": 0
+        }, 
+        {
+            "source": 29, 
+            "target": 81, 
+            "value": 0
+        }, 
+        {
+            "source": 30, 
+            "target": 73, 
+            "value": 19125
+        }, 
+        {
+            "source": 31, 
+            "target": 73, 
+            "value": 0
+        }, 
+        {
+            "source": 32, 
+            "target": 73, 
+            "value": 200325
+        }, 
+        {
+            "source": 33, 
+            "target": 75, 
+            "value": 1030000
+        }, 
+        {
+            "source": 34, 
+            "target": 79, 
+            "value": 905980
+        }, 
+        {
+            "source": 35, 
+            "target": 79, 
+            "value": 10000
+        }, 
+        {
+            "source": 36, 
+            "target": 79, 
+            "value": 0
+        }, 
+        {
+            "source": 37, 
+            "target": 86, 
+            "value": 441133
+        }, 
+        {
+            "source": 38, 
+            "target": 70, 
+            "value": 140000
+        }, 
+        {
+            "source": 39, 
+            "target": 81, 
+            "value": 88295
+        }, 
+        {
+            "source": 40, 
+            "target": 79, 
+            "value": 140800
+        }, 
+        {
+            "source": 41, 
+            "target": 81, 
+            "value": 0
+        }, 
+        {
+            "source": 42, 
+            "target": 81, 
+            "value": 0
+        }, 
+        {
+            "source": 43, 
+            "target": 74, 
+            "value": 0
+        }, 
+        {
+            "source": 44, 
+            "target": 81, 
+            "value": 0
+        }, 
+        {
+            "source": 45, 
+            "target": 74, 
+            "value": 0
+        }, 
+        {
+            "source": 46, 
+            "target": 73, 
+            "value": 0
+        }, 
+        {
+            "source": 47, 
+            "target": 77, 
+            "value": 44173
+        }, 
+        {
+            "source": 48, 
+            "target": 79, 
+            "value": 900000
+        }, 
+        {
+            "source": 49, 
+            "target": 75, 
+            "value": 0
+        }, 
+        {
+            "source": 50, 
+            "target": 75, 
+            "value": 0
+        }, 
+        {
+            "source": 51, 
+            "target": 81, 
+            "value": 236756
+        }, 
+        {
+            "source": 52, 
+            "target": 81, 
+            "value": 276000
+        }, 
+        {
+            "source": 53, 
+            "target": 77, 
+            "value": 1082738
+        }, 
+        {
+            "source": 54, 
+            "target": 79, 
+            "value": 425488
+        }, 
+        {
+            "source": 55, 
+            "target": 75, 
+            "value": 390500
+        }, 
+        {
+            "source": 56, 
+            "target": 75, 
+            "value": 1688375
+        }, 
+        {
+            "source": 57, 
+            "target": 87, 
+            "value": 10467425
+        }, 
+        {
+            "source": 58, 
+            "target": 87, 
+            "value": 2115750
+        }, 
+        {
+            "source": 59, 
+            "target": 88, 
+            "value": 8947694
+        }, 
+        {
+            "source": 60, 
+            "target": 88, 
+            "value": 4003461
+        }, 
+        {
+            "source": 61, 
+            "target": 89, 
+            "value": 3153054
+        }, 
+        {
+            "source": 62, 
+            "target": 90, 
+            "value": 1103000
+        }, 
+        {
+            "source": 63, 
+            "target": 91, 
+            "value": 851048
+        }, 
+        {
+            "source": 64, 
+            "target": 92, 
+            "value": 1392494
+        }, 
+        {
+            "source": 65, 
+            "target": 83, 
+            "value": 1248333
+        }, 
+        {
+            "source": 66, 
+            "target": 83, 
+            "value": 4820912
+        }, 
+        {
+            "source": 67, 
+            "target": 81, 
+            "value": 0
+        }
+    ]
+}
