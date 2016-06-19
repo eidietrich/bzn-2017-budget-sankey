@@ -1,11 +1,43 @@
+/* 
+Packaged sankey chart 
+
+
+
+TODO:
+- Clean up reliance on BOZEMAN_POP global var
+- Add sample initialization
+- Add label position control to opts.layout
+- - show/hide value threshold
+- - inner/outer display
+*/
+
 var SankeyChart = function(opts) {
     this.data = opts.data;
     this.element = opts.element;
+    this.topLabels = opts.topLabels;
     this.panes = opts.panes;
+    this.layout = opts.layout;
+
+
+    // // Add buttons across the top
+    // // TODO: Figure out how to make this work
+    // this.buttonGroup = d3.select('#viz-container').append("div")
+    //   .attr({
+    //     class: "btn-group",
+    //     id: "pane-toggle",
+    //     role: "group"
+    //   });
+
+    // this.buttonGroup.data(this.panes).enter()
+    //   .append("button")
+    //     .attr({
+    //       type: "button",
+    //       name: function(d){ return d.name; },
+    //       class: "btn btn-default"
+    //     })
+    //     .text( function(d) { return d.name; });
 
     this.draw();
-
-    
 
     // EVENT LISTENERS
     // redraw on window resize
@@ -28,70 +60,44 @@ var SankeyChart = function(opts) {
           // TODO: change refreshHighlight so it can handle multiple node selections
 
         };
-    
     // Pane xfer handling 
     d3.selectAll('#pane-toggle button')
       .on("click", function(){
         d3.selectAll('#pane-toggle button').classed('active', false);
         d3.select(this).classed('active', true);
-        setHighlights(this.getAttribute('name'));
+        setHighlights(this.getAttribute('name')); // THIS NO LONGER WORKS :^(
       });
-
-
   };
   SankeyChart.prototype.draw = function(){
-    
+    this.configLayout();
+
+    // Clear viz element
+    this.element.innerHTML = '';
+
+    // append the svg canvas to the page
+    this.svg = d3.select(this.element).append("svg")
+      .attr("width", this.width)
+      .attr("height", this.height);
+
+    this.drawSankey();
+    this.addTopLabels();
+    this.addListeners();
+  };
+  SankeyChart.prototype.configLayout = function(){
     this.width = this.element.offsetWidth;
-    this.height = this.width;
-    this.margin = {
-        top: 25,
-        right: 0,
-        bottom: 10,
-        left: 0
-      };
-    
-    this.nodeWidth = 30;
-    this.nodePadding = 2;
 
-    // Decide whether to draw in mobile or desktop mode
-    this.drawMode = this.checkSize();
+    this.drawMode = this.width > this.layout.mobileBreak ? 'desktop' : 'mobile';
+    var layoutConfig = this.layout[this.drawMode];
 
-    // Adjust for desktop display
-    if (this.drawMode === 'desktop'){
-      this.height = this.width * (2/3);
-      this.margin.right = 100;
-      this.margin.left = 100;
-      this.nodeWidth = 15;
-
-    }
+    this.height = this.width * layoutConfig.aspect;
+    this.margin = layoutConfig.margins;
+    this.nodeWidth = layoutConfig.nodeWidth;
+    this.nodePadding = layoutConfig.nodePadding;
 
     this.plotWidth = this.width - this.margin.left - this.margin.right;
     this.plotHeight = this.height - this.margin.top - this.margin.bottom;
-
-    // append the svg canvas to the page
-    this.element.innerHTML = '';
-    this.svg = d3.select(this.element).append("svg")
-      .attr("width", this.width)
-      .attr("height", this.height)
-
-    // Add labels across the chart top
-    var labels = [
-      {text: 'Revenues', position: 0, anchor: 'start'},
-      {text: 'Fund', position: 0.5, anchor: 'middle'},
-      {text: 'Spending', position: 1, anchor: 'end' }
-    ];
-    var that = this;
-    this.label = this.svg.append('g')
-      .selectAll('text')
-      .data(labels).enter()
-      .append('text')
-        .text(function(d){ return d.text; })
-        .attr("class","label")
-        .attr("x", function(d){ return d.position * that.width; })
-        .attr("y", 15)
-        .attr("text-anchor", function(d){ return d.anchor; });
-      
-    
+  };
+  SankeyChart.prototype.drawSankey = function(){
     this.plot = this.svg.append('g')
       .attr("transform",
           "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -132,7 +138,7 @@ var SankeyChart = function(opts) {
         return "translate(" + d.x + "," + d.y + ")";
       });
 
-    // add the rectangles for the nodes
+    // draw rectangles for the nodes
     this.node.append("rect")
       .attr("height", function(d) {
         return d.dy;
@@ -148,7 +154,7 @@ var SankeyChart = function(opts) {
         return d3.rgb(d.color).darker(0.5);
       });
 
-    // add in the title for the nodes
+    // add in node titles
     if(this.drawMode === 'desktop') {
       this.node.append("text")
       .filter(function(d) { return d.col === 1 || d.col === 3;})
@@ -164,12 +170,31 @@ var SankeyChart = function(opts) {
         .attr("x", 6 + this.sankey.nodeWidth())
         .attr("text-anchor", "start");
     }
-
-    this.addListeners();
-    
   };
-  SankeyChart.prototype.checkSize = function(){
-      return this.width > MOBILE_BREAK ? 'desktop' : 'mobile';
+  SankeyChart.prototype.addTopLabels = function(){
+    var that = this;
+    this.svg.append('g')
+      .selectAll('text')
+      .data(this.topLabels).enter()
+      .append('text')
+        .text(function(d){ return d.text; })
+        .attr("class","label")
+        .attr("x", function(d){ return d.position * that.width; })
+        .attr("y", 15)
+        .attr("text-anchor", function(d){ return d.anchor; });
+  };
+  SankeyChart.prototype.writeDescription = function(subhead,text){
+    // Replace whatever's in description field with 'subhead' and 'text'
+
+    this.descrElem = document.querySelector('#description');
+    this.descrElem.innerHTML = '';
+    this.descr = d3.select(this.descrElem);
+
+    this.descr.append("h3")
+      .text(subhead);
+    this.descr.append("p")
+      .text(text);
+
   };
   SankeyChart.prototype.addListeners = function(){
     /*
@@ -180,40 +205,41 @@ var SankeyChart = function(opts) {
     Hover changes description but not highlight during hold state
     */
 
-    var highlightElement = null;
+    var highlightNode = null;
     var describeElement = null;
     var holdState = false;
     var that = this;
 
     var onHighlight = function(){
       if (holdState === false){
-        highlightElement = d3.select(this);
-        that.refreshHighlight(highlightElement);
+        highlightNode = d3.select(this).datum(); // datum call gets to node data as object
+        that.refreshHighlight([highlightNode]);
       }
-      describeElement = d3.select(this);
+      //TODO: Update these to use datum, so I'm passing objects around between functions
+      describeElement = d3.select(this); 
       that.refreshDescription(describeElement);
     };
     var offHighlight = function(){
       if (holdState === false){
-        highlightElement = null;
-        that.refreshHighlight(highlightElement);
+        highlightNode = null;
+        that.refreshHighlight(highlightNode);
       }
       describeElement = null;
       that.refreshDescription(describeElement);
     };
     var click = function(){
       if (holdState === true) {
-        highlightElement = null;
+        highlightNode = null;
         describeElement = null;
         holdState = false;
-        that.refreshHighlight(highlightElement);
+        that.refreshHighlight(highlightNode);
         that.refreshDescription(describeElement);
       } 
       else {
-        highlightElement = d3.select(this);
+        highlightNode = d3.select(this).datum();
         describeElement = d3.select(this);
         holdState = true;
-        that.refreshHighlight(highlightElement);
+        that.refreshHighlight([highlightNode]);
         that.refreshDescription(describeElement);
       }
     };
@@ -222,26 +248,40 @@ var SankeyChart = function(opts) {
       .on("mouseout", offHighlight)
       .on("click", click);  
   };
-  SankeyChart.prototype.refreshHighlight = function(highlightElement){
-    // if highlightElement = null, turn everything back
-    // else mask everything except highlight node links
-    if (highlightElement !== null){
-      var sourceLinks = highlightElement.datum().targetLinks;
-      var targetLinks = highlightElement.datum().sourceLinks;
-      // add links one node removed 
+  SankeyChart.prototype.refreshHighlight = function(highlightNodes){
+    // Takes null, or array of node objects
+    // CASE: highlightSelection is null --> demask everything
+    // CASE: highlightSelection is a single node --> mask everything else
+    // CASE: highlightSelection is an array of nodes --> mask everything but them
+
+    var getLinks = function(node){
+      // Goes forward and backwards full length of diagram
+      // Links that feed into/from node
+
+      // Walk backward (I may have this mixed up)
+      var sourceLinks = node.targetLinks;
       sourceLinks.forEach(function(d){
         d.source.targetLinks.forEach(function(d){
           sourceLinks.push(d);
         });
       });
+      // Walk forward
+      var targetLinks = node.sourceLinks;
       targetLinks.forEach(function(d){
         d.target.sourceLinks.forEach(function(d){
           targetLinks.push(d);
         });
       });
 
-      var highlightLinks = targetLinks.concat(sourceLinks);
-      
+      return targetLinks.concat(sourceLinks);
+    };
+
+    if (highlightNodes !== null){
+      highlightLinks = [];
+      highlightNodes.forEach(function(node){
+        highlightLinks = highlightLinks.concat(getLinks(node));
+      });
+
       d3.selectAll('.link')
         .filter(function(link) {
           // check whether each link object is in highlightLinks
@@ -249,53 +289,36 @@ var SankeyChart = function(opts) {
           return i === -1;
         })
         .classed("mask", true);
-      // console.log(highlightElement.datum().targetLinks);
-    }
-    else {
+    } else {
+      // If highlightSelection is null, turn off mask universally
       d3.selectAll('.link')
         .classed("mask", false);
     }
   };
-
   SankeyChart.prototype.refreshDescription = function(describeElement){
-    var formatValue = function(d){
-      return '$' + d3.format(",.0f")(d);
+    // TODO: Set this so it intelligently applies millions labels
+    var formatValue = function(amount){
+      return '$' + d3.format(",.0f")(amount);
     };
     
-    this.descrElem = document.querySelector('#description');
-    this.descrElem.innerHTML = '';
+    this.description = document.querySelector('#description');
+    this.description.innerHTML = '';
     this.descr = d3.select(this.descrElem);
     var text;
-
     if (describeElement !== null){
       var elemData = describeElement.datum();
-      this.descr.append("h3")
-        .text(elemData['label-name']);
       if (elemData.col === 1){
-        // Description for funding source
         text = formatValue(elemData.value) + " in expected revenue, or " + formatValue(elemData.value / BOZEMAN_POP) + " per resident.";
-        this.descr.append("p")
-          .text(text);
-
       } else if (elemData.col === 2){
-        // Description for fund
         var fundRevenue = sum(elemData.targetLinks, "value");
         var fundSpending = sum(elemData.sourceLinks, "value");
-        this.descr.append("p")
-          .text(formatValue(fundRevenue) + " in expected revenue");
-        this.descr.append("p")
-          .text(formatValue(fundSpending) + " in proposed spending.");
-
+        text = formatValue(fundRevenue) + " in expected revenue, " +
+          formatValue(fundSpending) + " in proposed spending.";
       } else if (elemData.col === 3){
         // Description for spending category
         text = formatValue(elemData.value) + " in proposed spending, or " +  formatValue(elemData.value / BOZEMAN_POP) + " per resident.";
-        this.descr.append("p")
-          .text(text);
-      } else {
-        this.descr.append("p")
-          .text("This is an error.");
-      } 
-
+      }
+      this.writeDescription(elemData['label-name'], text); 
     } 
     else {
       this.descrElem.innerHTML = DEFAULT_DESCR;

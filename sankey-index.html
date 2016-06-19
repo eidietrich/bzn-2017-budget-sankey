@@ -47,8 +47,6 @@ text {
   font-weight: bold;
 }
 
-
-
 .node rect {
   fill-opacity: .95;
   shape-rendering: crispEdges;
@@ -91,25 +89,32 @@ text {
   <script src="js/sankey-chart.js"></script>
   <script>
 
-  var MOBILE_BREAK = 480; // px, breakpoint for responsiveness
+  // var MOBILE_BREAK = 480; // px, breakpoint for responsiveness
   var BOZEMAN_POP = 45000;
   var DEFAULT_DESCR = "<p>Hover or tap to highlight specific portions.</p><p>More ipsum</p><p>Yet another ipsum</p>";
   
-  var panes = {
-    'a': {
-      'name': 'Whole diagram'
-    },
-    'b':{
+  var panes = [
+    {
+      'name': 'FY17',
+      'description': 'this is filler text, from the pane variable'
+    },{
       'name': 'General fund',
+      'description': 'this is filler text, from the pane variable',
       'includeNodes': ["010 - General Fund"]
-    },
-    'c':{
-      'name': 'Infrastructure' // Highlight Water, Sewer, Streets, Stormwater, Solid Waste, Landfill clean-up
-    },
-    'd':{
-      'name': 'Affordable housing' // Highlight affordable housing
+    },{
+      'name': 'Infrastructure', // Highlight Water, Sewer, Streets, Stormwater, Solid Waste, Landfill clean-up
+      'description': 'this is filler text, from the pane variable'
+    },{
+      'name': 'Housing', // Highlight affordable housing
+      'description': 'this is filler text, from the pane variable'
     }
-  };
+  ];
+
+  var topLabels = [
+      {text: 'Revenues', position: 0, anchor: 'start'},
+      {text: 'Fund', position: 0.5, anchor: 'middle'},
+      {text: 'Spending', position: 1, anchor: 'end' }
+    ];
 
   d3.json("data/combined.json", function(error, graph) {
     // TODO: add data-processing to get values normalized by population in here
@@ -118,7 +123,23 @@ text {
     var chart = new SankeyChart({
       element: document.querySelector('#viz'),
       data: graph,
-      panes: panes
+      topLabels: topLabels,
+      panes: panes, 
+      layout: { 
+        'mobileBreak': 480,
+        'mobile' : { 
+          'aspect':  1,// height/width
+          'margins': { top: 25, right: 0, bottom: 10, left: 0 },
+          'nodeWidth': 30,
+          'nodePadding': 2, 
+        },
+        'desktop': {
+          'aspect':  2/3,// height/width
+          'margins': { top: 25, right: 100, bottom: 10, left: 100 },
+          'nodeWidth': 15,
+          'nodePadding': 2, 
+        }
+      }
     });
   });
 
