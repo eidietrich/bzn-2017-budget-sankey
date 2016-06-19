@@ -1,11 +1,20 @@
 /* 
 Packaged sankey chart 
 
+Hat tip to http://ejb.github.io/2016/05/23/a-better-way-to-structure-d3-code.html for design pattern.
 
+TERMINOLOGY:
+panes: views of the graphic (defined by opts.panes) --> include highlight conditions and description
+nodes: diagram nodes, with height value representing greater of in- or out-flows
+links: paths representing node to node flow, width proportional to flow 
+
+EXPECTED DATA STRUCTURE:
+TODO
 
 TODO:
 - Clean up reliance on BOZEMAN_POP global var
-- Add sample initialization
+- Add example initialization to this documentation
+- Make buttons set scroll to button top on press (so whole description below chart is visible)
 - Add label position control to opts.layout
 - - show/hide value threshold
 - - inner/outer display
@@ -18,6 +27,7 @@ var SankeyChart = function(opts) {
     this.panes = opts.panes;
     this.layout = opts.layout;
 
+    
 
     // // Add buttons across the top
     // // TODO: Figure out how to make this work
@@ -38,6 +48,7 @@ var SankeyChart = function(opts) {
     //     .text( function(d) { return d.name; });
 
     this.draw();
+    this.initializeDescription();
 
     // EVENT LISTENERS
     // redraw on window resize
@@ -45,28 +56,9 @@ var SankeyChart = function(opts) {
     d3.select(window).on('resize', function(){
       that.draw();
     });
-
-    var setHighlights = function(pane){
-          console.log(that.panes[pane].name);
-          var selection = that.panes[pane].nodeSelector;
-          var includeNodes = d3.selectAll(".node")
-            .filter(function(d){
-              // check whether each link object is in highlightLinks
-              i = that.panes[pane].includeNodes.indexOf(d);
-              return i === -1;
-            });
-          console.log(includeNodes);
-          that.refreshHighlight(includeNodes);
-          // TODO: change refreshHighlight so it can handle multiple node selections
-
-        };
-    // Pane xfer handling 
-    d3.selectAll('#pane-toggle button')
-      .on("click", function(){
-        d3.selectAll('#pane-toggle button').classed('active', false);
-        d3.select(this).classed('active', true);
-        setHighlights(this.getAttribute('name')); // THIS NO LONGER WORKS :^(
-      });
+    
+    // NOTES: Making an effort to pass nodes / link references around as their data objects. Not sure how consistent I'm being.
+    
   };
   SankeyChart.prototype.draw = function(){
     this.configLayout();
@@ -82,6 +74,11 @@ var SankeyChart = function(opts) {
     this.drawSankey();
     this.addTopLabels();
     this.addListeners();
+  };
+  SankeyChart.prototype.initializeDescription = function(){
+    this.currentPane = this.panes[0];
+    this.holdState = false; // Locking flow highlight state
+    this.setDescription(this.currentPane.subhead, this.currentPane.description);
   };
   SankeyChart.prototype.configLayout = function(){
     this.width = this.element.offsetWidth;
@@ -183,18 +180,28 @@ var SankeyChart = function(opts) {
         .attr("y", 15)
         .attr("text-anchor", function(d){ return d.anchor; });
   };
-  SankeyChart.prototype.writeDescription = function(subhead,text){
+  SankeyChart.prototype.setDescription = function(subhead,text){
     // Replace whatever's in description field with 'subhead' and 'text'
 
     this.descrElem = document.querySelector('#description');
-    this.descrElem.innerHTML = '';
     this.descr = d3.select(this.descrElem);
+    var that = this;
 
-    this.descr.append("h3")
-      .text(subhead);
-    this.descr.append("p")
-      .text(text);
+    var change = function(){
+      that.descrElem.innerHTML = '';
+      that.descr.append("h3")
+        .text(subhead);
+      that.descr.append("p")
+        .text(text);
+    };
 
+    // Fade-out-change-fade-in transition
+    this.descr
+      .transition().duration(100)
+        .style("opacity", 0)
+        .each("end", change)
+      .transition().duration(100)
+        .style("opacity", 1);
   };
   SankeyChart.prototype.addListeners = function(){
     /*
@@ -207,103 +214,208 @@ var SankeyChart = function(opts) {
 
     var highlightNode = null;
     var describeElement = null;
-    var holdState = false;
+
     var that = this;
 
     var onHighlight = function(){
-      if (holdState === false){
+      if (that.holdState === false){
         highlightNode = d3.select(this).datum(); // datum call gets to node data as object
-        that.refreshHighlight([highlightNode]);
+        that.setHighlight([highlightNode]);
       }
       //TODO: Update these to use datum, so I'm passing objects around between functions
       describeElement = d3.select(this); 
-      that.refreshDescription(describeElement);
+      that.changeDescriptionTo(describeElement);
     };
     var offHighlight = function(){
-      if (holdState === false){
+      if (that.holdState === false){
         highlightNode = null;
-        that.refreshHighlight(highlightNode);
+        that.setHighlight(highlightNode);
       }
       describeElement = null;
-      that.refreshDescription(describeElement);
+      that.changeDescriptionTo(describeElement);
     };
     var click = function(){
-      if (holdState === true) {
+      if (that.holdState === true) {
         highlightNode = null;
         describeElement = null;
-        holdState = false;
-        that.refreshHighlight(highlightNode);
-        that.refreshDescription(describeElement);
+        that.holdState = false;
+        that.setPane(that.panes[0]) // Set to first/default pane
+        that.setHighlight(highlightNode);
+        that.changeDescriptionTo(describeElement);
       } 
       else {
         highlightNode = d3.select(this).datum();
         describeElement = d3.select(this);
-        holdState = true;
-        that.refreshHighlight([highlightNode]);
-        that.refreshDescription(describeElement);
+        that.holdState = true;
+        that.setHighlight([highlightNode]);
+        that.changeDescriptionTo(describeElement);
       }
     };
     this.plot.selectAll(".node-rect")
       .on("mouseover", onHighlight)
       .on("mouseout", offHighlight)
-      .on("click", click);  
+      .on("click", click); 
+
+
+    // Pane xfer handling
+    var getPaneByName = function(name){
+      var that = this, match = null;
+      this.panes.forEach(function(d){
+        if (d.name == name) {
+          match = d;
+        }
+      });
+      return match;
+    };
+    
+    d3.selectAll('#pane-toggle button')
+      .on("click", function(){
+        // var toggleButton = function(newButton){
+        //   d3.selectAll('#pane-toggle button').classed('active', false);
+        //   d3.select(newButton).classed('active', true);
+        // };
+
+        var pane = getPaneByName(this.getAttribute('name'));
+
+        // Change button states
+        // console.log(this);
+        // toggleButton(this);
+        that.setPane(pane);
+
+        // that.currentPane = pane;
+
+        // Change description
+        // that.setDescription(that.currentPane.subhead, that.currentPane.description);
+
+        // // Change chart appearance
+        // if (pane.includeNodes == '$ALL'){
+        //   that.holdState = false;
+        //   that.setHighlight(null);
+        // } else {
+        //   that.holdState = true;
+        //   var nodes = [];
+        //   pane.includeNodes.forEach(function(d){
+        //     nodes.push(getNodeByName(d));
+        //   });
+        //   that.setHighlight(nodes);
+        // }
+      }); 
   };
-  SankeyChart.prototype.refreshHighlight = function(highlightNodes){
+  SankeyChart.prototype.setPane = function(pane){
+    var getNodeByName = function(name){
+      var node = d3.selectAll('.node')
+        .filter(function(d){
+          // console.log(d.name, d.name === name);
+          return d.name === name;
+        });
+      return node.datum();
+    };
+    var getButtonByName = function(name){
+      return d3.select('#pane-toggle').select('[name="' + name + '"]')
+    };
+
+    console.log('Set pane to', pane.name);
+
+    var button = getButtonByName(pane.name);
+
+
+    // Change button states
+
+    d3.selectAll('#pane-toggle button').classed('active', false);
+    button.classed('active', true);
+
+    // Set this.currentPane (data object)
+    this.currentPane = pane;
+
+    // Change description
+    this.setDescription(pane.subhead, pane.description);
+
+    // Change chart appearance
+    if (pane.includeNodes == '$ALL'){
+      this.holdState = false;
+      this.setHighlight(null);
+    } else {
+      this.holdState = true;
+      var nodes = [];
+      pane.includeNodes.forEach(function(d){
+        nodes.push(getNodeByName(d));
+      });
+      this.setHighlight(nodes);
+    }
+  };
+  SankeyChart.prototype.setHighlight = function(highlightNodes){
     // Takes null, or array of node objects
     // CASE: highlightSelection is null --> demask everything
     // CASE: highlightSelection is a single node --> mask everything else
     // CASE: highlightSelection is an array of nodes --> mask everything but them
 
-    var getLinks = function(node){
-      // Goes forward and backwards full length of diagram
-      // Links that feed into/from node
+    var getConnections = function(node){
+      // Walks forward and backwards full length of diagram,
+      // returning nodes and links connected to single node
+      var connections = { nodes: [node], links: [] };
 
-      // Walk backward (I may have this mixed up)
-      var sourceLinks = node.targetLinks;
-      sourceLinks.forEach(function(d){
-        d.source.targetLinks.forEach(function(d){
-          sourceLinks.push(d);
+      var backLinks = node.targetLinks;
+      backLinks.forEach(function(link){
+        connections.links.push(link);
+        connections.nodes.push(link.source);
+        link.source.targetLinks.forEach(function(link){ 
+          connections.links.push(link);
+          connections.nodes.push(link.source);
+          backLinks.push(link); // Allows further iteration, I think
         });
       });
-      // Walk forward
-      var targetLinks = node.sourceLinks;
-      targetLinks.forEach(function(d){
-        d.target.sourceLinks.forEach(function(d){
-          targetLinks.push(d);
+      var forwLinks = node.sourceLinks;
+      forwLinks.forEach(function(link){
+        connections.links.push(link);
+        connections.nodes.push(link.target);
+        link.target.sourceLinks.forEach(function(link){
+          connections.links.push(link);
+          connections.nodes.push(link.target);
+          forwLinks.push(link);
         });
       });
 
-      return targetLinks.concat(sourceLinks);
+      return connections;
     };
 
+    // Clear highlight
+    d3.selectAll('.link')
+      .classed("mask", false);
+    d3.selectAll('.node')
+      .classed("mask", false);
+
+    // Apply highlight unless highlightNodes is null
     if (highlightNodes !== null){
-      highlightLinks = [];
+      var highlights = {nodes: [], links: []};
       highlightNodes.forEach(function(node){
-        highlightLinks = highlightLinks.concat(getLinks(node));
+        var connections = getConnections(node);
+        highlights.nodes = highlights.nodes.concat(connections.nodes);
+        highlights.links = highlights.links.concat(connections.links);
       });
 
       d3.selectAll('.link')
         .filter(function(link) {
           // check whether each link object is in highlightLinks
-          i = highlightLinks.indexOf(link);
+          i = highlights.links.indexOf(link);
           return i === -1;
         })
         .classed("mask", true);
-    } else {
-      // If highlightSelection is null, turn off mask universally
-      d3.selectAll('.link')
-        .classed("mask", false);
+      d3.selectAll('.node')
+        .filter(function(node){
+          i = highlights.nodes.indexOf(node);
+          return i === -1;
+        })
+        .classed("mask", true);
     }
   };
-  SankeyChart.prototype.refreshDescription = function(describeElement){
+  SankeyChart.prototype.changeDescriptionTo = function(describeElement){
+    // TODO: Change this function name
+
     // TODO: Set this so it intelligently applies millions labels
     var formatValue = function(amount){
       return '$' + d3.format(",.0f")(amount);
     };
     
-    this.description = document.querySelector('#description');
-    this.description.innerHTML = '';
-    this.descr = d3.select(this.descrElem);
     var text;
     if (describeElement !== null){
       var elemData = describeElement.datum();
@@ -318,10 +430,10 @@ var SankeyChart = function(opts) {
         // Description for spending category
         text = formatValue(elemData.value) + " in proposed spending, or " +  formatValue(elemData.value / BOZEMAN_POP) + " per resident.";
       }
-      this.writeDescription(elemData['label-name'], text); 
+      this.setDescription(elemData['label-name'], text); 
     } 
     else {
-      this.descrElem.innerHTML = DEFAULT_DESCR;
+      this.setDescription(this.currentPane.subhead, this.currentPane.description);
     }
   };
 

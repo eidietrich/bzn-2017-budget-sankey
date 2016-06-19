@@ -50,6 +50,7 @@ text {
 .node rect {
   fill-opacity: .95;
   shape-rendering: crispEdges;
+  transition: opacity 600ms ease;
 }
 
 .highlight {
@@ -63,22 +64,30 @@ text {
   transition: stroke-opacity 600ms ease;
 }
 
-.mask {
+.link.mask {
   stroke-opacity: .1;
-  
 }
+.node.mask {
+  fill-opacity: 0.2;
+} 
+.node.mask rect {
+  opacity: 0.2;
+  /*stroke-opacity: 0.2;*/
+}
+
+
 </style>
 
 <body>  
-<div id="viz-container" style="max-width: 600px; min-width: 310px">
+<div id="viz-container" style="max-width: 600px; min-width: 310px; height: 1000px">
   <h1> Untangling Bozeman's budget</h1>
   <p> Nearly $100 million will flow through city coffers in Fiscal Year 2017, which starts July 1. Here's a look at the numbers, based on the budget proposal prepared by City Manager Chris Kukulski.</p>
   <p>Hover or tap to highlight specific portions of the budget.</p>
   <div class="btn-group" id="pane-toggle" role="group" aria-label="...">
-    <button type="button" name="a" class="btn btn-default active">FY17</button>
-    <button type="button" name="b" class="btn btn-default">General Fund</button>
-    <button type="button" name="c" class="btn btn-default">Infrastructure</button>
-    <button type="button" name="d" class="btn btn-default">Housing</button>
+    <button type="button" name="FY17" class="btn btn-default active">FY17</button>
+    <button type="button" name="General Fund" class="btn btn-default">General Fund</button>
+    <button type="button" name="Infrastructure" class="btn btn-default">Infrastructure</button>
+    <button type="button" name="Housing" class="btn btn-default">Housing</button>
   </div>
   <div id="viz" style="width:100%;" ></div>
   <div id="description" style="width:100%;"></div>
@@ -89,24 +98,30 @@ text {
   <script src="js/sankey-chart.js"></script>
   <script>
 
-  // var MOBILE_BREAK = 480; // px, breakpoint for responsiveness
   var BOZEMAN_POP = 45000;
   var DEFAULT_DESCR = "<p>Hover or tap to highlight specific portions.</p><p>More ipsum</p><p>Yet another ipsum</p>";
   
   var panes = [
     {
       'name': 'FY17',
-      'description': 'this is filler text, from the pane variable'
+      'subhead': "Bozeman's 2016-17 budget",
+      'description': 'this is filler text, from the pane variable',
+      'includeNodes': '$ALL' // special command
     },{
-      'name': 'General fund',
+      'name': 'General Fund',
+      'subhead': "SUBHEAD GEN FUND",
       'description': 'this is filler text, from the pane variable',
       'includeNodes': ["010 - General Fund"]
     },{
       'name': 'Infrastructure', // Highlight Water, Sewer, Streets, Stormwater, Solid Waste, Landfill clean-up
-      'description': 'this is filler text, from the pane variable'
+      'subhead': "SUBHEAD Infrastructure",
+      'description': 'this is filler text, from the pane variable',
+      'includeNodes': ["Water","Sewer","Streets","Stormwater","Solid waste"]
     },{
       'name': 'Housing', // Highlight affordable housing
-      'description': 'this is filler text, from the pane variable'
+      'subhead': "SUBHEAD Housing",
+      'description': 'this is filler text, from the pane variable',
+      'includeNodes': ["Affordable housing support"]
     }
   ];
 
@@ -126,7 +141,7 @@ text {
       topLabels: topLabels,
       panes: panes, 
       layout: { 
-        'mobileBreak': 480,
+        'mobileBreak': 480, // px
         'mobile' : { 
           'aspect':  1,// height/width
           'margins': { top: 25, right: 0, bottom: 10, left: 0 },
