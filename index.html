@@ -14,7 +14,7 @@
 }
 
 p {
-  font-size: 13px;
+  font-size: 14px;
 }
 #viz-container {
   margin: 5px;
@@ -43,15 +43,19 @@ text {
   pointer-events: none;
 }
 .node text {
+  text-shadow: 1px 1px 0.1px #fff;
+  /*fill: #fff;*/
+  /*font-weight: bold;*/
 }
 .label {
+  font-size: 14px;
   font-weight: bold;
 }
 
 .node rect {
   fill-opacity: .95;
   shape-rendering: crispEdges;
-  transition: opacity 600ms ease;
+  transition: opacity 400ms ease;
 }
 
 .highlight {
@@ -62,7 +66,7 @@ text {
   fill: none;
   stroke: #000;
   stroke-opacity: .75;
-  transition: stroke-opacity 600ms ease;
+  transition: stroke-opacity 400ms ease;
 }
 
 .link.mask {
@@ -83,13 +87,15 @@ text {
 <div id="viz-container" style="max-width: 600px; min-width: 310px; height: 1000px">
   <h1> Untangling Bozeman's budget</h1>
   <p> Nearly $100 million will flow through city coffers in Fiscal Year 2017, which starts July 1. Here’s how that breaks down.</p>
-  <div class="btn-group" id="pane-toggle" role="group" aria-label="...">
-    <button type="button" name="FY17" class="btn btn-default active">FY17</button>
-    <button type="button" name="General Fund" class="btn btn-default">General Fund</button>
-    <button type="button" name="Infrastructure" class="btn btn-default">Infrastructure</button>
-    <button type="button" name="Housing" class="btn btn-default">Housing</button>
-  </div>
   <div id="viz" style="width:100%;" ></div>
+  <div class="centering" style="text-align: center;">
+    <div class="btn-group" id="pane-toggle" role="group" aria-label="...">
+      <button type="button" name="FY17" class="btn btn-default active">FY17</button>
+      <button type="button" name="General Fund" class="btn btn-default">General Fund</button>
+      <button type="button" name="Infrastructure" class="btn btn-default">Infrastructure</button>
+      <button type="button" name="Housing" class="btn btn-default">Housing</button>
+    </div>
+  </div>
   <div id="description" style="width:100%;"></div>
 </div>
   
@@ -127,7 +133,7 @@ text {
 
   var topLabels = [
       {text: 'Revenues', position: 0, anchor: 'start'},
-      {text: 'Fund', position: 0.5, anchor: 'middle'},
+      {text: 'Account', position: 0.5, anchor: 'middle'},
       {text: 'Spending', position: 1, anchor: 'end' }
     ];
 
@@ -146,19 +152,19 @@ text {
           'aspect':  1,// height/width
           'margins': { top: 25, right: 0, bottom: 10, left: 0 },
           'nodeWidth': 30,
-          'nodePadding': 2, 
+          'nodePadding': 2,
+          // 'filterValue': 10000000 // for text label display on edge nodes
         },
         'desktop': {
           'aspect':  2/3,// height/width
           'margins': { top: 25, right: 100, bottom: 10, left: 100 },
           'nodeWidth': 15,
-          'nodePadding': 2, 
+          'nodePadding': 2,
+          // 'filterValue': 3000000
         }
       }
     });
-  });
-
-  
+  }); 
     
   </script>
   

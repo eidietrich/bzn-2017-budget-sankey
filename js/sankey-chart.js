@@ -95,6 +95,7 @@ var SankeyChart = function(opts) {
     this.plotHeight = this.height - this.margin.top - this.margin.bottom;
   };
   SankeyChart.prototype.drawSankey = function(){
+    var that = this;
     this.plot = this.svg.append('g')
       .attr("transform",
           "translate(" + this.margin.left + "," + this.margin.top + ")");
@@ -151,22 +152,69 @@ var SankeyChart = function(opts) {
         return d3.rgb(d.color).darker(0.5);
       });
 
+    console.log(this.layout[this.drawMode]);
+    var labelOpts = {
+      'mobile': {
+        '1': {
+          // right position
+          'display': true, 'filterValue': 5000000,
+          'x': 6 + that.sankey.nodeWidth(), 'text-anchor': 'start'
+        },
+        '2': {
+          // no display
+          'display': false, 'filterValue': 3000000,
+        },
+        '3': {
+          // left position
+          'display': true, 'filterValue': 5000000,
+          'x': -6, 'text-anchor': 'end'
+        }
+      },
+      'desktop': {
+       '1': {
+        // left position
+          'display': true, 'filterValue': 3000000,
+          'x': -6, 'text-anchor': 'end'
+       },
+       '2': {
+          'display': false, 'filterValue': 3000000,
+       },
+       '3': {
+          'display': true, 'filterValue': 3000000,
+          'x': 6 + that.sankey.nodeWidth(), 'text-anchor': 'start'
+
+       }
+      }
+    };
+
+
+
     // add in node titles
-    if(this.drawMode === 'desktop') {
       this.node.append("text")
-      .filter(function(d) { return d.col === 1 || d.col === 3;})
-      .filter(function(d) { return d.value > 3000000; })
-        .attr("x", -6)
+      // .filter(function(d) { return d.col === 1 || d.col === 3;})
+      // .filter(function(d) { return d.value > that.layout[that.drawMode].filterValue; })
+      .filter(function(d) {
+        var opts = labelOpts[that.drawMode][String(d.col)];
+        var displayFilter = opts.display;
+        var valueFilter = d.value > opts.filterValue;
+
+        console.log(opts);
+        console.log(displayFilter && valueFilter);
+
+        return displayFilter && valueFilter;
+      })
+        .attr("transform", null)
         .attr("y", function(d) { return d.dy / 2; })
         .attr("dy", ".35em")
-        .attr("text-anchor", "end")
-        .attr("transform", null)
+        .attr('x', function(d) { return labelOpts[that.drawMode][String(d.col)].x; })
+        .attr('text-anchor', function(d){ return labelOpts[that.drawMode][String(d.col)]['text-anchor']; })
+        // .attr("x", -6)
+        // .attr("text-anchor", "end")
         .text(function(d) { return d['label-name']; })
         // .call(wrap)
-      .filter(function(d) { return d.col > 1; })
-        .attr("x", 6 + this.sankey.nodeWidth())
-        .attr("text-anchor", "start");
-    }
+      // .filter(function(d) { return d.col > 1; })
+      //   .attr("x", 6 + this.sankey.nodeWidth())
+      //   .attr("text-anchor", "start");
   };
   SankeyChart.prototype.addTopLabels = function(){
     var that = this;
@@ -279,28 +327,8 @@ var SankeyChart = function(opts) {
 
         var pane = getPaneByName(this.getAttribute('name'));
 
-        // Change button states
-        // console.log(this);
-        // toggleButton(this);
         that.setPane(pane);
-
-        // that.currentPane = pane;
-
-        // Change description
-        // that.setDescription(that.currentPane.subhead, that.currentPane.description);
-
-        // // Change chart appearance
-        // if (pane.includeNodes == '$ALL'){
-        //   that.holdState = false;
-        //   that.setHighlight(null);
-        // } else {
-        //   that.holdState = true;
-        //   var nodes = [];
-        //   pane.includeNodes.forEach(function(d){
-        //     nodes.push(getNodeByName(d));
-        //   });
-        //   that.setHighlight(nodes);
-        // }
+        console.log(this.getBoundingClientRect().top);
       }); 
   };
   SankeyChart.prototype.setPane = function(pane){
