@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>SANKEY Experiment</title>
+<!-- Bootstrap styles for buttons -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+<style>
+
+@media (max-width: 480px){
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+p {
+  font-size: 13px;
+}
+#viz-container {
+  margin: 5px;
+}
+
+/* For buttons (overrides bootstrap) */
+.btn-group {
+}
+.btn {
+  font-size: 11px;
+  padding: 6px 5px;
+}
+/* Removes blue border on click in Chrome */
+.btn:focus,.btn:active:focus,.btn.active:focus,
+.btn.focus,.btn:active.focus,.btn.active.focus {
+    outline: none;
+}
+/*.btn.selected {
+  background-color: #eee;
+}*/
+
+/* For graphic */
+text {
+  font-family: sans-serif;
+  font-size: 12px;
+  pointer-events: none;
+}
+.node text {
+}
+.label {
+  font-weight: bold;
+}
+
+.node rect {
+  fill-opacity: .95;
+  shape-rendering: crispEdges;
+  transition: opacity 600ms ease;
+}
+
+.highlight {
+  fill: #444;
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .75;
+  transition: stroke-opacity 600ms ease;
+}
+
+.link.mask {
+  stroke-opacity: .1;
+}
+.node.mask {
+  fill-opacity: 0.2;
+} 
+.node.mask rect {
+  opacity: 0.2;
+  /*stroke-opacity: 0.2;*/
+}
+
+
+</style>
+
+<body>  
+<div id="viz-container" style="max-width: 600px; min-width: 310px; height: 1000px">
+  <h1> Untangling Bozeman's budget</h1>
+  <p> Nearly $100 million will flow through city coffers in Fiscal Year 2017, which starts July 1. Here’s how that breaks down.</p>
+  <div class="btn-group" id="pane-toggle" role="group" aria-label="...">
+    <button type="button" name="FY17" class="btn btn-default active">FY17</button>
+    <button type="button" name="General Fund" class="btn btn-default">General Fund</button>
+    <button type="button" name="Infrastructure" class="btn btn-default">Infrastructure</button>
+    <button type="button" name="Housing" class="btn btn-default">Housing</button>
+  </div>
+  <div id="viz" style="width:100%;" ></div>
+  <div id="description" style="width:100%;"></div>
+</div>
+  
+  <script src="js/d3.min.js"></script>
+  <script src="js/sankey-modified.js"></script>
+  <script src="js/sankey-chart.js"></script>
+  <script>
+
+  var BOZEMAN_POP = 45000;
+  var DEFAULT_DESCR = "<p>Hover or tap to highlight specific portions.</p><p>More ipsum</p><p>Yet another ipsum</p>";
+  
+  var panes = [
+    {
+      'name': 'FY17',
+      'subhead': "Bozeman's 2016-17 budget",
+      'description': ['Revenue sources, at left, include property taxes and service charges (e.g. utility bills and impact fees levied on new development). Ultimate spending, at right, includes city services like police, fire and parks as well as tens of millions in infrastructure projects.', 'Hover or tap to highlight specific portions.'], // array of paragraphs
+      'includeNodes': '$ALL' // special command
+    },{
+      'name': 'General Fund',
+      'subhead': "The general fund",
+      'description': ['The city’s general fund, supported primarily by property tax dollars, represents most of the city’s higher-profile spending, with its funds providing the bulk of support for key services like police and fire departments, and basic government operations like city administration.'],
+      'includeNodes': ["010 - General Fund"]
+    },{
+      'name': 'Infrastructure', // Highlight Water, Sewer, Streets, Stormwater, Solid Waste, Landfill clean-up
+      'subhead': "The cost of infrastructure",
+      'description': ["As Bozeman grows, the cost of general-fund supported services will actually be dwarfed by this year's planned infrastructure spending.","Note that water and sewer projects are largely funded by service fees, while financing for streets projects involves a wider array of sources."],
+      'includeNodes': ["Water","Sewer","Streets","Stormwater","Solid waste"]
+    },{
+      'name': 'Housing', // Highlight affordable housing
+      'subhead': "Supporting affordable housing",
+      'description': ['While a hot-button issue for Bozeman, only a vanishingly small portion of the city budget is allocated to supporting affordable housing efforts.', 'This money, most drawn from property taxes, is generally used for purposes like supporting HRDC’s homebuyer education program and subsidizing rental projects that provide options to lower-income families.'],
+      'includeNodes': ["Affordable housing support"]
+    }
+  ];
+
+  var topLabels = [
+      {text: 'Revenues', position: 0, anchor: 'start'},
+      {text: 'Fund', position: 0.5, anchor: 'middle'},
+      {text: 'Spending', position: 1, anchor: 'end' }
+    ];
+
+  d3.json("data/combined.json", function(error, graph) {
+    // TODO: add data-processing to get values normalized by population in here
+    // (Currently buried down in sankey-chart.js)
+
+    var chart = new SankeyChart({
+      element: document.querySelector('#viz'),
+      data: graph,
+      topLabels: topLabels,
+      panes: panes, 
+      layout: { 
+        'mobileBreak': 480, // px
+        'mobile' : { 
+          'aspect':  1,// height/width
+          'margins': { top: 25, right: 0, bottom: 10, left: 0 },
+          'nodeWidth': 30,
+          'nodePadding': 2, 
+        },
+        'desktop': {
+          'aspect':  2/3,// height/width
+          'margins': { top: 25, right: 100, bottom: 10, left: 100 },
+          'nodeWidth': 15,
+          'nodePadding': 2, 
+        }
+      }
+    });
+  });
+
+  
+    
+  </script>
+  
+</body>
+
+</html>
