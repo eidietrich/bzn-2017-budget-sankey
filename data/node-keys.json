@@ -1,15 +1,20 @@
 {
-  "Property Taxes": { "col": 1, "rank": 1, "color": "#e31a1c", "label-name": "Property Taxes" },
-  "Special Assessment": { "col": 1, "rank": 2, "color": "#e31a1c", "label-name": "Assessments" },
-  "Charges for Service": { "col": 1, "rank": 3, "color": "#1f78b4", "label-name": "Service Charges" },
-  "Intergovernmental": { "col": 1, "rank": 4, "color": "#6a3d9a", "label-name": "Govt. Transfers" },
+  "Property Taxes": { "col": 1, "rank": 1, "color": "#e31a1c", "label-name": "Property Taxes",
+   "description": "From property tax revenues based on the taxable value of residential and commercial property." },
+  "Special Assessment": { "col": 1, "rank": 2, "color": "#e31a1c", "label-name": "Assessments",
+   "description": "From city assessments levied on property owners for specific purposes (e.g. street maintenance)." },
+  "Charges for Service": { "col": 1, "rank": 3, "color": "#1f78b4", "label-name": "Service Charges",
+   "description": "Includes water and sewer charges, as well as impact fees levied to account for the cost of infrastructure made necessary by new development." },
+  "Intergovernmental": { "col": 1, "rank": 4, "color": "#6a3d9a", "label-name": "Govt. Transfers",
+   "description": "Transfers from other government entities, including funds provided to local governments from state coffers." },
   "Licenses & Permits": { "col": 1, "rank": 5, "color": "#f781bf", "label-name": "Licenses/Permits" },
   "Fines and Forfeitures": { "col": 1, "rank": 6, "color": "#f781bf", "label-name": "Fines/Forfeitures" },
   "Other Financing": { "col": 1, "rank": 7, "color": "#999999", "label-name": "Other Financing" },
   "Other Revenues": { "col": 1, "rank": 8, "color": "#999999", "label-name": "Other Revenues" },
   "Interest Income": { "col": 1, "rank": 9, "color": "#999999", "label-name": "Fund Interest" },
 
-  "010 - General Fund": { "col": 2, "rank": 1, "color": "#ff7f00", "label-name": "General Fund" },
+  "010 - General Fund": { "col": 2, "rank": 1, "color": "#ff7f00", "label-name": "General Fund",
+   "description": "The city's primary account, holding the bulk of property tax collections and supporting most non-infrastructure city services." },
 
   
 
@@ -93,7 +98,8 @@
   "Administration": { "col": 3, "rank": 1, "color": "#ff7f00", "label-name": "Administration" },
   "Police": { "col": 3, "rank": 2, "color": "#ff7f00", "label-name": "Police" },
   "Fire": { "col": 3, "rank": 3, "color": "#ff7f00", "label-name": "Fire" },
-  "Parks & Recreation": { "col": 3, "rank": 4, "color": "#ff7f00", "label-name": "Parks & Rec" },
+  "Parks & Recreation": { "col": 3, "rank": 4, "color": "#ff7f00", "label-name": "Parks & Rec",
+   "description": "Includes spending on projects made possible by the 2012 trails, open spaces and parks bond."},
   "Library": { "col": 3, "rank": 5, "color": "#ff7f00", "label-name": "Library" },
   "City Attorney": { "col": 3, "rank": 6, "color": "#ff7f00", "label-name": "City Attorney" },
   "Municipal Court": { "col": 3, "rank": 7, "color": "#ff7f00", "label-name": "Municipal Court" },
@@ -102,7 +108,8 @@
   "Sustainability programs": { "col": 3, "rank": 10, "color": "#ff7f00", "label-name": "Sustainability programs" },
   "Facilities": { "col": 3, "rank": 11, "color": "#ff7f00", "label-name": "Facilities" },
 
-  "Economic development": { "col": 3, "rank": 12, "color": "#33a02c", "label-name": "Econ. dev." },
+  "Economic development": { "col": 3, "rank": 12, "color": "#33a02c", "label-name": "Econ. dev.",
+   "description": "Includes spending on the city's two-person economic development department, as well as tax dollars and other collections routed through programs like the Downtown Tax Increment Finance District." },
 
   "Water": { "col": 3, "rank": 14, "color": "#ffdd44", "label-name": "Water" },
   "Sewer": { "col": 3, "rank": 15, "color": "#ffdd44", "label-name": "Sewer" },

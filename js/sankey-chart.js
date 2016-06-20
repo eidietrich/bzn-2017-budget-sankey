@@ -180,7 +180,7 @@ var SankeyChart = function(opts) {
         .attr("y", 15)
         .attr("text-anchor", function(d){ return d.anchor; });
   };
-  SankeyChart.prototype.setDescription = function(subhead,text){
+  SankeyChart.prototype.setDescription = function(subhead,textArray){
     // Replace whatever's in description field with 'subhead' and 'text'
 
     this.descrElem = document.querySelector('#description');
@@ -191,8 +191,10 @@ var SankeyChart = function(opts) {
       that.descrElem.innerHTML = '';
       that.descr.append("h3")
         .text(subhead);
-      that.descr.append("p")
-        .text(text);
+      that.descr.selectAll("p")
+        .data(textArray).enter()
+        .append('p')
+        .text(function(d){ return d;});
     };
 
     // Fade-out-change-fade-in transition
@@ -249,7 +251,7 @@ var SankeyChart = function(opts) {
         that.holdState = true;
         that.setHighlight([highlightNode]);
         that.changeDescriptionTo(describeElement);
-      }
+      }      
     };
     this.plot.selectAll(".node-rect")
       .on("mouseover", onHighlight)
@@ -313,8 +315,6 @@ var SankeyChart = function(opts) {
     var getButtonByName = function(name){
       return d3.select('#pane-toggle').select('[name="' + name + '"]')
     };
-
-    console.log('Set pane to', pane.name);
 
     var button = getButtonByName(pane.name);
 
@@ -416,21 +416,25 @@ var SankeyChart = function(opts) {
       return '$' + d3.format(",.0f")(amount);
     };
     
-    var text;
+    var description = [];
     if (describeElement !== null){
       var elemData = describeElement.datum();
       if (elemData.col === 1){
-        text = formatValue(elemData.value) + " in expected revenue, or " + formatValue(elemData.value / BOZEMAN_POP) + " per resident.";
+        description.push(formatValue(elemData.value) + " in expected revenue, or " + formatValue(elemData.value / BOZEMAN_POP) + " per resident.");
       } else if (elemData.col === 2){
         var fundRevenue = sum(elemData.targetLinks, "value");
         var fundSpending = sum(elemData.sourceLinks, "value");
-        text = formatValue(fundRevenue) + " in expected revenue, " +
-          formatValue(fundSpending) + " in proposed spending.";
+        description.push(formatValue(fundRevenue) + " in expected revenue, " +
+          formatValue(fundSpending) + " in proposed spending.");
       } else if (elemData.col === 3){
         // Description for spending category
-        text = formatValue(elemData.value) + " in proposed spending, or " +  formatValue(elemData.value / BOZEMAN_POP) + " per resident.";
+        description.push(formatValue(elemData.value) + " in proposed spending, or " +  formatValue(elemData.value / BOZEMAN_POP) + " per resident.");
       }
-      this.setDescription(elemData['label-name'], text); 
+      if (elemData.description){
+        description.push(elemData.description);
+      }
+
+      this.setDescription(elemData['label-name'], description); 
     } 
     else {
       this.setDescription(this.currentPane.subhead, this.currentPane.description);

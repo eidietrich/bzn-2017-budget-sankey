@@ -6,7 +6,8 @@
             "color": "#e31a1c", 
             "label-name": "Property Taxes", 
             "rank": 1, 
-            "col": 1
+            "col": 1, 
+            "description": "From property tax revenues based on the taxable value of residential and commercial property."
         }, 
         {
             "node": 1, 
@@ -14,7 +15,8 @@
             "color": "#1f78b4", 
             "label-name": "Service Charges", 
             "rank": 3, 
-            "col": 1
+            "col": 1, 
+            "description": "Includes water and sewer charges, as well as impact fees levied to account for the cost of infrastructure made necessary by new development."
         }, 
         {
             "node": 2, 
@@ -22,7 +24,8 @@
             "color": "#6a3d9a", 
             "label-name": "Govt. Transfers", 
             "rank": 4, 
-            "col": 1
+            "col": 1, 
+            "description": "Transfers from other government entities, including funds provided to local governments from state coffers."
         }, 
         {
             "node": 3, 
@@ -70,7 +73,8 @@
             "color": "#e31a1c", 
             "label-name": "Assessments", 
             "rank": 2, 
-            "col": 1
+            "col": 1, 
+            "description": "From city assessments levied on property owners for specific purposes (e.g. street maintenance)."
         }, 
         {
             "node": 9, 
@@ -78,7 +82,8 @@
             "color": "#ff7f00", 
             "label-name": "General Fund", 
             "rank": 1, 
-            "col": 2
+            "col": 2, 
+            "description": "The city's primary account, holding the bulk of property tax collections and supporting most non-infrastructure city services."
         }, 
         {
             "node": 10, 
@@ -622,7 +627,8 @@
             "color": "#ff7f00", 
             "label-name": "Parks & Rec", 
             "rank": 4, 
-            "col": 3
+            "col": 3, 
+            "description": "Includes spending on projects made possible by the 2012 trails, open spaces and parks bond."
         }, 
         {
             "node": 78, 
@@ -638,7 +644,8 @@
             "color": "#33a02c", 
             "label-name": "Econ. dev.", 
             "rank": 12, 
-            "col": 3
+            "col": 3, 
+            "description": "Includes spending on the city's two-person economic development department, as well as tax dollars and other collections routed through programs like the Downtown Tax Increment Finance District."
         }, 
         {
             "node": 80, 

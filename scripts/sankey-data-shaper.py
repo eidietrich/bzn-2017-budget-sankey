@@ -90,6 +90,8 @@ def to_json(df, file_path):
         node['col'] = node_keys[node['name']]['col']
         node['rank'] = node_keys[node['name']]['rank']
         node['label-name'] = node_keys[node['name']]['label-name']
+        if 'description' in node_keys[node['name']]: # Optional description field for node
+            node['description'] = node_keys[node['name']]['description']
         
     # Replace node 'name' labels in each link with node indices
     for link in graph['links']:
